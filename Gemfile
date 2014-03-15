@@ -29,6 +29,9 @@ gem "draper", '~> 1.3'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks', "~> 2.2.1"
 
+# Configuration
+gem "settingslogic"
+
 # Routing
 gem "route_translator"
 

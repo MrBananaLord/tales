@@ -1,0 +1,12 @@
+defaults: &defaults
+  default_url_options:
+    host: "tales.dev"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+  
+production:
+  <<: *defaults
