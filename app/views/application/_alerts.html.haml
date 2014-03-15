@@ -1,0 +1,6 @@
+- if flash.any?
+  .container.alerts
+    - flash.each do |kind, message|
+      %div.alert.alert-dismissable{ class: alert_class(kind) }
+        %button.close{ type: "button", "data-dismiss" => :alert, "aria-hidden" => "true" } &times;
+        = message

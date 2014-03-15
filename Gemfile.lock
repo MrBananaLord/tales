@@ -116,6 +116,7 @@ GEM
       sass (~> 3.2.0)
       sprockets (~> 2.8, <= 2.11.0)
       sprockets-rails (~> 2.0.0)
+    settingslogic (2.0.9)
     simple_form (3.0.1)
       actionpack (>= 4.0.0, < 4.1)
       activemodel (>= 4.0.0, < 4.1)
@@ -165,6 +166,7 @@ DEPENDENCIES
   rails (= 4.0.3)
   route_translator
   sass-rails (~> 4.0.0)
+  settingslogic
   simple_form
   sqlite3
   turbolinks (~> 2.2.1)
