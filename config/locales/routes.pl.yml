@@ -1,0 +1,11 @@
+pl:
+  routes:
+    cancel: "anuluj"
+    confirmation: "potwierdz"
+    edit: "edytuj"
+    new: "dodaj"
+    password: "haslo"
+    sign_in: "zaloguj"
+    sign_out: "wyloguj"
+    sign_up: "zarejestruj"
+    users: "uzytkownicy"

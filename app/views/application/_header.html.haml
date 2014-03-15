@@ -1,3 +1,5 @@
 %nav.navbar.navbar-default.navbar-static-top
   .container
     = link_to "Tales", root_url, class: "navbar-brand"
+    %button{ type: "button", class: "btn btn-default navbar-btn" }
+      = link_to "Zarejestruj / tłumacz", new_user_registration_path
