@@ -10,5 +10,6 @@ module Tales
   class Application < Rails::Application
     config.time_zone = 'Warsaw'
     config.i18n.default_locale = :pl
+    config.sass.preferred_syntax = :sass
   end
 end
