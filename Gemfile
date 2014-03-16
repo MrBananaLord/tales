@@ -21,7 +21,6 @@ gem 'jquery-rails'
 
 # Views
 gem "haml"
-gem "haml-rails", group: :development
 gem "bootstrap-sass", '~> 3.1.1'
 gem "simple_form"
 gem "draper", '~> 1.3'
@@ -44,3 +43,10 @@ group :development do
   gem "binding_of_caller"
   gem "quiet_assets"
 end
+
+# Views for development
+group :development do
+  gem "haml-rails"
+  gem "erb2haml"
+end
+
