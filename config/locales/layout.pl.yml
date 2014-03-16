@@ -1,0 +1,4 @@
+pl:
+  application:
+    header:
+      sign_in: "Zaloguj się"
