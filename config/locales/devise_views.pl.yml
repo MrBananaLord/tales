@@ -3,6 +3,30 @@ pl:
     defaults: &defaults
       sign_in: "Zaloguj się"
       sign_up: "Załóż konto"
+    confirmations:
+      new:
+        heading: "Nie otrzymałeś wiadomości aktywacyjnej?"
+        resend: "Wyślij wiadomość"
+    mailer:
+      confirmation_instructions:
+        click_to_confirm: "Aby zakończyć proces rejestracji, kliknij poniższy link."
+        confirm_account: "Zakończ rejestrację."
+        hello: "Dzień dobry %{email}!"
+      reset_password_instructions:
+        click_above_to_change_password: "Twoje hasło nie zostanie zmienione, dopóki nie klikniesz linku powyżej i nie wypełnisz formularza."
+        change_password: "Zmień hasło."
+        hello: "Dzień dobry %{email}!"
+        optional_ignore: "Jeśli ta prośba nie została wysłana przez Ciebie, zignoruj tę wiadomość."
+        reset_requested: "Otrzymaliśmy prośbę o zresetowanie Twojego hasła. Jeśli rzeczywiście chesz zmienić swoje hasło, kliknij poniższy link."
+    passwords:
+      new:
+        heading: "Zapomniałeś hasła?"
+        send: "Wyślij instrukcje"
+      edit:
+        heading: "Ustaw nowe hasło"
+        new_password: "Nowe hasło"
+        confirm_new_password: "Powtórz nowe hasło"
+        submit: "Zmień hasło"
     registrations:
       new:
         create_account: "Załóż konto"
@@ -15,4 +39,5 @@ pl:
       links:
         <<: *defaults
         confirmation_not_received: "Nie otrzymałeś instrukcji potwierdzenia konta?"
-        forgot_password: "Zapomniałeś hasło?"
+        forgot_password: "Zapomniałeś hasła?"
+
