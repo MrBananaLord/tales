@@ -1,2 +1,11 @@
 pl:
-  
+  devise:
+    registrations:
+      new:
+        create_account: "Załóż konto"
+        heading: "Rejestracja"
+    shared:
+      links:
+        confirmation_not_received: "Nie otrzymałeś instrukcji potwierdzenia konta?"
+        sign_in: "Zaloguj się"
+        sign_up: "Załóż konto"

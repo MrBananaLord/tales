@@ -1,0 +1,14 @@
+pl:
+  activerecord:
+    models:
+      user: "Uzytkownik"
+    attributes:
+      user: &user_attributes
+        email: "Adres e-mail"
+        password: "Hasło"
+        password_confirmation: "Potwierdzenie hasła"
+
+  simple_form:
+    placeholders:
+      user:
+        <<: *user_attributes
