@@ -7,6 +7,7 @@ pl:
         email: "Adres e-mail"
         password: "Hasło"
         password_confirmation: "Potwierdzenie hasła"
+        remember_me: "Zapamiętaj mnie"
 
   simple_form:
     placeholders:

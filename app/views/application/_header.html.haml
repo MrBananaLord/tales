@@ -1,5 +1,9 @@
 %nav.navbar.navbar-default.navbar-static-top
   .container
     = link_to "Tales", root_url, class: "navbar-brand"
-    %button{ type: "button", class: "btn btn-default navbar-btn" }
-      = link_to t(".sign_in"), new_user_session_path
+    - if current_user
+      %button{ type: "button", class: "btn btn-default navbar-btn" }
+        = link_to t(".sign_out"), destroy_user_session_path, method: :delete
+    - else
+      %button{ type: "button", class: "btn btn-default navbar-btn" }
+        = link_to t(".sign_in"), new_user_session_path

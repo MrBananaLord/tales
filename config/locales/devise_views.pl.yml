@@ -1,14 +1,18 @@
 pl:
   devise:
+    defaults: &defaults
+      sign_in: "Zaloguj się"
+      sign_up: "Załóż konto"
     registrations:
       new:
         create_account: "Załóż konto"
         heading: "Rejestracja"
     sessions:
       new:
+        <<: *defaults
         heading: "Logowanie"
     shared:
       links:
+        <<: *defaults
         confirmation_not_received: "Nie otrzymałeś instrukcji potwierdzenia konta?"
-        sign_in: "Zaloguj się"
-        sign_up: "Załóż konto"
+        forgot_password: "Zapomniałeś hasło?"
