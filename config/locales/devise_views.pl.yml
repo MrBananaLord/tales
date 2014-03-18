@@ -4,6 +4,9 @@ pl:
       new:
         create_account: "Załóż konto"
         heading: "Rejestracja"
+    sessions:
+      new:
+        heading: "Logowanie"
     shared:
       links:
         confirmation_not_received: "Nie otrzymałeś instrukcji potwierdzenia konta?"

@@ -1,9 +1,11 @@
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
+  config.error_notification_tag = :div
   config.error_notification_class = 'alert alert-error'
-  config.input_class = "form-control"
   config.label_class = "control-label col-sm-2"
+  config.input_class = "form-control"
   config.button_class = "btn btn-default"
+  config.browser_validations = false
   
   config.wrappers :bootstrap, :tag => 'div', :class => 'form-group', :error_class => 'error' do |b|
     b.use :html5
@@ -37,6 +39,19 @@ SimpleForm.setup do |config|
       end
       input.use :hint,  :wrap_with => { :tag => 'span', :class => 'help-block' }
       input.use :error, :wrap_with => { :tag => 'span', :class => 'help-inline' }
+    end
+  end
+  
+  config.wrappers :inline_checkbox, :tag => 'div', :class => 'control-group', :error_class => 'error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.wrapper :tag => 'div', :class => 'controls' do |ba|
+      ba.wrapper :tag => 'label', :class => 'checkbox' do |bb|
+        bb.use :input
+        bb.use :label_text
+      end
+      ba.use :error, :wrap_with => { :tag => 'span', :class => 'help-inline' }
+      ba.use :hint,  :wrap_with => { :tag => 'p', :class => 'help-block' }
     end
   end
   
