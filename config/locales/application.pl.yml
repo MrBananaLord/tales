@@ -5,3 +5,6 @@ pl:
       sign_out: "Wyloguj się"
   questions:
     confirm: "Jesteś pewien?"
+  statements:
+    access_denied: "Nie masz dostępu do tej strony."
+    login_required: "Logowanie wymagane"
