@@ -33,6 +33,7 @@ pl:
         heading: "Edytowanie konta"
         leave_blank_or_change: "Pozostaw puste jeżeli nie chcesz zmieniać."
         remove_account: "Usuń konto"
+        waiting_for_confirmation: "Oczekiwanie na potwierdzenie adresu e-mail: %{email}"
       new:
         create_account: "Załóż konto"
         heading: "Rejestracja"
