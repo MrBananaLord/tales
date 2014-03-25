@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140325203450) do
+ActiveRecord::Schema.define(version: 20140325210441) do
+
+  create_table "edges", force: true do |t|
+    t.text     "content"
+    t.integer  "tail_id"
+    t.integer  "head_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "edges", ["head_id"], name: "index_edges_on_head_id"
+  add_index "edges", ["tail_id"], name: "index_edges_on_tail_id"
 
   create_table "games", force: true do |t|
     t.string   "name"
