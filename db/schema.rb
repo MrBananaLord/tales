@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140325202609) do
+ActiveRecord::Schema.define(version: 20140325203450) do
 
   create_table "games", force: true do |t|
     t.string   "name"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 20140325202609) do
 
   add_index "games", ["first_node_id"], name: "index_games_on_first_node_id"
   add_index "games", ["owner_id"], name: "index_games_on_owner_id"
+
+  create_table "nodes", force: true do |t|
+    t.text     "content"
+    t.integer  "game_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "nodes", ["game_id"], name: "index_nodes_on_game_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
