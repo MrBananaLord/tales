@@ -1,6 +1,6 @@
 class Game < ActiveRecord::Base
   belongs_to :owner, class_name: "User"
-  belongs_to :first_node
+  belongs_to :first_node, class_name: "Node"
   has_many :nodes, dependent: :destroy
   
   validates :name, presence: true
