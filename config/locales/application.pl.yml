@@ -3,3 +3,5 @@ pl:
     header:
       sign_in: "Zaloguj się"
       sign_out: "Wyloguj się"
+  questions:
+    confirm: "Jesteś pewien?"

@@ -4,6 +4,7 @@ pl:
       user: "Uzytkownik"
     attributes:
       user: &user_attributes
+        current_password: "Aktualne hasło"
         email: "Adres e-mail"
         password: "Hasło"
         password_confirmation: "Potwierdzenie hasła"

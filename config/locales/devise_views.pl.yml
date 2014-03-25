@@ -28,6 +28,11 @@ pl:
         confirm_new_password: "Powtórz nowe hasło"
         submit: "Zmień hasło"
     registrations:
+      edit:
+        current_password_required: "Podaj aktualne hasło, żeby zatwierdzić zmiany."
+        heading: "Edytowanie konta"
+        leave_blank_or_change: "Pozostaw puste jeżeli nie chcesz zmieniać."
+        remove_account: "Usuń konto"
       new:
         create_account: "Załóż konto"
         heading: "Rejestracja"
