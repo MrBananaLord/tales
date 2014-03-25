@@ -2,7 +2,7 @@
   .container
     = link_to "Tales", root_url, class: "navbar-brand"
     - if current_user
-      = link_to current_user.email, edit_user_registration_path
+      = link_to current_user.email, current_user
       %button{ type: "button", class: "btn btn-default navbar-btn" }
         = link_to t(".sign_out"), destroy_user_session_path, method: :delete
     - else

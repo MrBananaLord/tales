@@ -5,4 +5,10 @@ class UserPolicy < ApplicationPolicy
   def show?
     user.present?
   end
+  
+  private
+  
+  def manage?
+    user == record
+  end
 end
