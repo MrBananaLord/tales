@@ -1,0 +1,11 @@
+pl:
+  activerecord:
+    attributes:
+      edge:
+        content: "Treść"
+        head: "Fragment docelowy"
+  edges:
+    new:
+      heading: "Dodawanie odpowiedzi"
+    edit:
+      heading: "Edytowanie odpowiedzi"

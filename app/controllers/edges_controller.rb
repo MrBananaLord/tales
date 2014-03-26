@@ -3,19 +3,19 @@ class EdgesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :load_game
   before_filter :load_node
-  before_filter :load_and_authorize_edge, only: [:edit, :update, :show, :destroy]
+  before_filter :load_and_authorize_edge, only: [:edit, :update, :destroy]
   
   def new
-    @edge = @node.edges.build
+    @edge = @node.children_edges.build
     authorize @edge
   end
   
   def create
-    @edge = @game.edges.build(edge_params)
+    @edge = @node.children_edges.build(edge_params)
     authorize @edge
 
     if @edge.save
-      redirect_to [@game, @edge], notice: I18n.t("statements.created")
+      redirect_to [@game, @node], notice: I18n.t("statements.created")
     else
       render action: "new"
     end
@@ -29,7 +29,7 @@ class EdgesController < ApplicationController
   
   def update
     if @edge.update(edge_params)
-      redirect_to @edge, notice: I18n.t("statements.updated")
+      redirect_to [@game, @node], notice: I18n.t("statements.updated")
     else
       render action: 'edit'
     end
@@ -37,7 +37,7 @@ class EdgesController < ApplicationController
   
   def destroy
     @edge.destroy
-    redirect_to @game, notice: I18n.t("statements.destroyed")
+    redirect_to @node, notice: I18n.t("statements.destroyed")
   end
   
   private
@@ -56,6 +56,6 @@ class EdgesController < ApplicationController
   end
 
   def edge_params
-    params.require(:edge).permit(:content)
+    params.require(:edge).permit(:content, :head_id)
   end
 end
