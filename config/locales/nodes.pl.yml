@@ -5,6 +5,8 @@ pl:
         content: "Treść"
   nodes:
     new:
-      heading: "Dodawanie węzła"
+      heading: "Dodawanie fragmentu"
     edit:
-      heading: "Edytowanie węzła"
+      heading: "Edytowanie fragmentu"
+    show:
+      new_edge: "Dodaj odpowiedź"

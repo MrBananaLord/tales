@@ -1,7 +1,7 @@
 class GamesController < ApplicationController
   
   before_filter :authenticate_user!
-  before_filter :set_game, only: [:edit, :update, :show, :destroy]
+  before_filter :load_and_authorize_game, only: [:edit, :update, :show, :destroy]
   
   def new
     @game = current_user.games.build
@@ -40,7 +40,7 @@ class GamesController < ApplicationController
   
   private
   
-  def set_game
+  def load_and_authorize_game
     @game = Game.find(params[:id])
     authorize @game
   end

@@ -2,10 +2,11 @@ class EdgesController < ApplicationController
   
   before_filter :authenticate_user!
   before_filter :load_game
-  before_filter :set_edge, only: [:edit, :update, :show, :destroy]
+  before_filter :load_node
+  before_filter :load_and_authorize_edge, only: [:edit, :update, :show, :destroy]
   
   def new
-    @edge = @game.edges.build
+    @edge = @node.edges.build
     authorize @edge
   end
   
@@ -41,13 +42,17 @@ class EdgesController < ApplicationController
   
   private
   
-  def set_edge
-    @edge = Edge.find(params[:id])
+  def load_and_authorize_edge
+    @edge = @node.children_edges.find(params[:id])
     authorize @edge
   end
   
   def load_game
     @game = Game.find(params[:game_id])
+  end
+  
+  def load_node
+    @node = @game.nodes.find(params[:node_id])
   end
 
   def edge_params

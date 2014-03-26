@@ -56,7 +56,7 @@ class NodesController < ApplicationController
   private
   
   def load_and_authorize_node
-    @node = Node.find(params[:id])
+    @node = @game.nodes.find(params[:id])
     authorize @node
   end
   
