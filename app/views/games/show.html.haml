@@ -1,6 +1,9 @@
-%h1= title @game.name
+.page-header
+  %h1= title @game.name
+  = action_link_to :destroy, @game, method: :delete,
+    data: { confirm: t("questions.confirm") }, if: can?(:destroy, @game)
 %p= @game.description
 
 = action_link_to t(".new_node"), [:new, @game, :node], if: can?(:edit, @game)
-= action_link_to :destroy, @game, method: :delete,
-  data: { confirm: t("questions.confirm") }, if: can?(:destroy, @game)
+= action_link_to t(".all_nodes"), [@game, :nodes], if: can?(:edit, @game)
+

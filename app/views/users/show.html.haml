@@ -9,3 +9,6 @@
       %h3= game.name
       %p= game.description
       = action_link_to :show, game, if: can?(:show, game)
+      = action_link_to :edit, [:edit, game], if: can?(:edit, game)
+      = action_link_to :destroy, game, method: :delete,
+        data: { confirm: t("questions.confirm") }, if: can?(:destroy, game)

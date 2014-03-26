@@ -4,7 +4,7 @@ Tales::Application.routes.draw do
     resources :users, only: :show
     
     resources :games, except: :index do
-      resources :nodes, except: :index do
+      resources :nodes do
         resources :edges, except: :index
       end
     end

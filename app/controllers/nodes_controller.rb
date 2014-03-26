@@ -39,6 +39,11 @@ class NodesController < ApplicationController
     redirect_to @game, notice: I18n.t("statements.destroyed")
   end
   
+  def index
+    authorize @game, :edit?
+    @nodes = @game.nodes
+  end
+  
   private
   
   def set_node
