@@ -6,3 +6,5 @@ pl:
   nodes:
     new:
       heading: "Dodawanie węzła"
+    edit:
+      heading: "Edytowanie węzła"

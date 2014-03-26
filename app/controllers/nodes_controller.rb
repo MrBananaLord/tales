@@ -28,7 +28,7 @@ class NodesController < ApplicationController
   
   def update
     if @node.update(node_params)
-      redirect_to @node, notice: I18n.t("statements.updated")
+      redirect_to [@game, @node], notice: I18n.t("statements.updated")
     else
       render action: 'edit'
     end
