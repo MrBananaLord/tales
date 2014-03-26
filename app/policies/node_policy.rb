@@ -2,10 +2,6 @@ class NodePolicy < ApplicationPolicy
   class Scope < ApplicationPolicy::Scope      
   end
   
-  def new?
-    user.present?
-  end
-  
   private
   
   def manage?

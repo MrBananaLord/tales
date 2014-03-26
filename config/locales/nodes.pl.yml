@@ -1,0 +1,8 @@
+pl:
+  activerecord:
+    attributes:
+      node:
+        content: "Treść"
+  nodes:
+    new:
+      heading: "Dodawanie węzła"

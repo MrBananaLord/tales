@@ -1,19 +1,20 @@
 class NodesController < ApplicationController
   
   before_filter :authenticate_user!
+  before_filter :load_game
   before_filter :set_node, only: [:edit, :update, :show, :destroy]
   
   def new
-    @game = current_user.games.build
-    authorize @game
+    @node = @game.nodes.build
+    authorize @node
   end
   
   def create
-    @game = current_user.games.build(game_params)
-    authorize @game
+    @node = @game.nodes.build(node_params)
+    authorize @node
 
-    if @game.save
-      redirect_to @game, notice: I18n.t("statements.created")
+    if @node.save
+      redirect_to [@game, @node], notice: I18n.t("statements.created")
     else
       render action: "new"
     end
@@ -26,26 +27,30 @@ class NodesController < ApplicationController
   end
   
   def update
-    if @game.update(game_params)
-      redirect_to @game, notice: I18n.t("statements.updated")
+    if @node.update(node_params)
+      redirect_to @node, notice: I18n.t("statements.updated")
     else
       render action: 'edit'
     end
   end
   
   def destroy
-    @game.destroy
-    redirect_to current_user, notice: I18n.t("statements.destroyed")
+    @node.destroy
+    redirect_to @game, notice: I18n.t("statements.destroyed")
   end
   
   private
   
-  def set_game
-    @game = Game.find(params[:id])
-    authorize @game
+  def set_node
+    @node = Node.find(params[:id])
+    authorize @node
+  end
+  
+  def load_game
+    @game = Game.find(params[:game_id])
   end
 
-  def game_params
-    params.require(:game).permit(:name, :description)
+  def node_params
+    params.require(:node).permit(:content)
   end
 end

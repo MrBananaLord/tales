@@ -1,0 +1,8 @@
+.page-header
+  %h1= title @game.name
+%p= @node.content
+
+= action_link_to t(".new_edge"), [:new, @game, @node, :edge], if: can?(:edit, @game)
+= action_link_to :edit, [:edit, @game, @node], if: can?(:edit, @node)
+= action_link_to :destroy, [@game, @node], method: :delete,
+  data: { confirm: t("questions.confirm") }, if: can?(:destroy, @node)

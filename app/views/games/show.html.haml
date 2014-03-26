@@ -1,4 +1,6 @@
 %h1= title @game.name
 %p= @game.description
-= action_link_to :new, Node, url: [:new, @game, :node], name: "New node"
-= action_link_to :destroy, @game, url: [@game], method: :delete
+
+= action_link_to t(".new_node"), [:new, @game, :node], if: can?(:edit, @game)
+= action_link_to :destroy, @game, method: :delete,
+  data: { confirm: t("questions.confirm") }, if: can?(:destroy, @game)

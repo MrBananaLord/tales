@@ -13,6 +13,6 @@ class GamePolicy < ApplicationPolicy
   end
   
   def read?
-    user == record.owner || record.published?
+    true
   end
 end

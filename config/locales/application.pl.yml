@@ -1,5 +1,7 @@
 pl:
   actions:
+    back: "Wróć"
+    destroy: "Usuń"
     edit: "Edytuj"
     new: "Dodaj"
     show: "Pokaż"

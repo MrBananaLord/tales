@@ -5,4 +5,6 @@ class Node < ActiveRecord::Base
   has_many :successors, through: :children_edges, source: :head
   has_many :parent_edges, foreign_key: :head_id, class_name: "Edge"
   has_many :predecessors, through: :parent_edges, source: :tail
+  
+  validates :content, presence: true
 end
