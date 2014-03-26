@@ -5,6 +5,7 @@ pl:
     edit: "edytuj"
     games: "gry"
     new: "dodaj"
+    nodes: "wezel"
     password: "haslo"
     sign_in: "zaloguj"
     sign_out: "wyloguj"

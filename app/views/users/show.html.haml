@@ -1,3 +1,11 @@
-= action_link_to :new, Game, new_game_path, name: t(".new_game")
-= action_link_to :edit, @user, edit_user_registration_path
+.page-header
+  %h1= title t(".heading")
 
+= action_link_to :edit, @user, url: edit_user_registration_path
+= action_link_to :new, Game, name: t(".new_game")
+- @user.games.each do |game|
+  .col-sm-6
+    .thumbnail
+      %h3= game.name
+      %p= game.description
+      = action_link_to :new, Game, name: t(".new_game")

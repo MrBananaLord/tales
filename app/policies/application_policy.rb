@@ -47,7 +47,7 @@ class ApplicationPolicy
   private
   
   def read?
-    true
+    user.present?
   end
   
   def manage?

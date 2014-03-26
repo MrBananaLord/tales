@@ -2,6 +2,10 @@ class UserPolicy < ApplicationPolicy
   class Scope < ApplicationPolicy::Scope      
   end
   
+  def create?
+    !user.present?
+  end
+  
   private
   
   def read?

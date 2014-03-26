@@ -11,4 +11,7 @@ pl:
     confirm: "Jesteś pewien?"
   statements:
     access_denied: "Nie masz dostępu do tej strony."
+    created: "Utworzono"
+    destroyed: "Usunięto"
     login_required: "Logowanie wymagane"
+    updated: "Zapisano zmiany"

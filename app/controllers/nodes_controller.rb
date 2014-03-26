@@ -1,7 +1,7 @@
-class GamesController < ApplicationController
+class NodesController < ApplicationController
   
   before_filter :authenticate_user!
-  before_filter :set_game, only: [:edit, :update, :show, :destroy]
+  before_filter :set_node, only: [:edit, :update, :show, :destroy]
   
   def new
     @game = current_user.games.build

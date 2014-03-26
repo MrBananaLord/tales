@@ -1,0 +1,4 @@
+%h1= title @game.name
+%p= @game.description
+= action_link_to :new, Node, url: [:new, @game, :node], name: "New node"
+= action_link_to :destroy, @game, url: [@game], method: :delete

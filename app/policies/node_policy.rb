@@ -1,4 +1,4 @@
-class GamePolicy < ApplicationPolicy
+class NodePolicy < ApplicationPolicy
   class Scope < ApplicationPolicy::Scope      
   end
   
@@ -9,10 +9,10 @@ class GamePolicy < ApplicationPolicy
   private
   
   def manage?
-    user == record.owner
+    user == record.game.owner
   end
   
   def read?
-    user == record.owner || record.published?
+    user == record.game.owner || record.game.published?
   end
 end

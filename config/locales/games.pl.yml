@@ -1,0 +1,9 @@
+pl:
+  activerecord:
+    attributes:
+      game:
+        description: "Opis"
+        name: "Nazwa"
+  games:
+    new:
+      heading: "Nowa gra"
