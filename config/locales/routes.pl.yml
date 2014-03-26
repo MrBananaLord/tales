@@ -8,6 +8,7 @@ pl:
     new: "dodaj"
     nodes: "wezly"
     password: "haslo"
+    set_as_first: "ustaw_jako_pierwszy"
     sign_in: "zaloguj"
     sign_out: "wyloguj"
     sign_up: "zarejestruj"

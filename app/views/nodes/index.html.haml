@@ -21,6 +21,7 @@
               %li= action_link_to :show, [@game, node], class: ""
               %li= action_link_to :edit, [:edit, @game, node], class: ""
               %li.divider
+              %li= action_link_to :set_as_first, [:set_as_first, @game, node], class: ""
               %li= action_link_to :destroy, [@game, node], class: "",
                     method: :delete, data: { confirm: t("questions.confirm") }
 

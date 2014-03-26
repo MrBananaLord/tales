@@ -2,6 +2,10 @@ class NodePolicy < ApplicationPolicy
   class Scope < ApplicationPolicy::Scope      
   end
   
+  def set_as_first?
+    manage?
+  end
+  
   private
   
   def manage?

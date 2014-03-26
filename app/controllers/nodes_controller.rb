@@ -2,7 +2,7 @@ class NodesController < ApplicationController
   
   before_filter :authenticate_user!
   before_filter :load_game
-  before_filter :set_node, only: [:edit, :update, :show, :destroy]
+  before_filter :load_and_authorize_node, except: [:new, :create, :index]
   
   def new
     @node = @game.nodes.build
@@ -44,9 +44,18 @@ class NodesController < ApplicationController
     @nodes = @game.nodes
   end
   
+  def set_as_first
+    if SetNodeAsFirst.new(@node).call.success?
+      flash[:notice] = I18n.t("statements.updated")
+    else
+      flash[:alert] = I18n.t("statements.failed_try_again")
+    end
+    redirect_to [@game, @node]
+  end
+  
   private
   
-  def set_node
+  def load_and_authorize_node
     @node = Node.find(params[:id])
     authorize @node
   end

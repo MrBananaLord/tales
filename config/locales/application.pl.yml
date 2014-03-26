@@ -4,6 +4,7 @@ pl:
     destroy: "Usuń"
     edit: "Edytuj"
     new: "Dodaj"
+    set_as_first: "Ustaw jako pierwszy"
     show: "Pokaż"
   application:
     header:
