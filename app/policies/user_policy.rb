@@ -2,11 +2,11 @@ class UserPolicy < ApplicationPolicy
   class Scope < ApplicationPolicy::Scope      
   end
   
-  def show?
+  private
+  
+  def read?
     user.present?
   end
-  
-  private
   
   def manage?
     user == record

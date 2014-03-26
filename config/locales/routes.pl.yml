@@ -3,6 +3,7 @@ pl:
     cancel: "anuluj"
     confirmation: "potwierdz"
     edit: "edytuj"
+    games: "gry"
     new: "dodaj"
     password: "haslo"
     sign_in: "zaloguj"

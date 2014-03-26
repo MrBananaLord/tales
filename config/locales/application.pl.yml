@@ -1,4 +1,8 @@
 pl:
+  actions:
+    edit: "Edytuj"
+    new: "Dodaj"
+    show: "Pokaż"
   application:
     header:
       sign_in: "Zaloguj się"

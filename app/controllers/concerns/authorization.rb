@@ -16,10 +16,10 @@ module Authorization
   def access_denied
     if current_user.nil?
       session[:return_to] = request.fullpath
-      flash[:warning] = I18n.t("application.statements.login_required")
+      flash[:warning] = I18n.t("statements.login_required")
       redirect_to new_user_session_path
     else
-      redirect_to root_path, alert: I18n.t("application.statements.access_denied")
+      redirect_to root_path, alert: I18n.t("statements.access_denied")
     end
   end
 end
