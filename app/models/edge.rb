@@ -7,6 +7,10 @@ class Edge < ActiveRecord::Base
   validates :tail, :content, presence: true
   validates :head, inclusion: { in: :game_nodes }, allow_nil: true
   
+  def build_head
+    super(game: game)
+  end
+  
   private
   
   def game_nodes

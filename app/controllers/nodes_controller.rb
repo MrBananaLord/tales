@@ -2,15 +2,16 @@ class NodesController < ApplicationController
   
   before_filter :authenticate_user!
   before_filter :load_game
+  before_filter :load_edge, only: [:new, :create]
   before_filter :load_and_authorize_node, except: [:new, :create, :index]
   
   def new
-    @node = @game.nodes.build
+    @node = @game.nodes.build(parent_edges: parent_edges)
     authorize @node
   end
   
   def create
-    @node = @game.nodes.build(node_params)
+    @node = @game.nodes.build(node_params.merge(parent_edges: parent_edges))
     authorize @node
 
     if @node.save
@@ -66,5 +67,13 @@ class NodesController < ApplicationController
 
   def node_params
     params.require(:node).permit(:content)
+  end
+  
+  def parent_edges
+    @parent_edges ||= [@edge].compact
+  end
+  
+  def load_edge
+    @edge = @game.edges.find_by(id: params[:edge_id])
   end
 end

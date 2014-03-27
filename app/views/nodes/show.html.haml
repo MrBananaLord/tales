@@ -6,12 +6,15 @@
 = action_link_to :destroy, [@game, @node], method: :delete,
   data: { confirm: t("questions.confirm") }, if: can?(:destroy, @node)
   
-= action_link_to t(".new_edge"), [:new, @game, @node, :edge], if: can?(:edit, @game)
+= action_link_to t(".new_edge"), [:new, @game, @node, :edge],
+  if: can?(:new, Edge.new(tail: @node))
 
 .list-group
   - @node.children_edges.each do |edge|
     .list-group-item
       = link_to_unless edge.head.nil?, edge.content, [@game, edge.head]
+      = action_link_to t(".new_head"), new_game_node_path(params: { edge_id: edge.id }),
+        if: can?(:new, edge.build_head)
       = action_link_to :edit, [:edit, @game, @node, edge], if: can?(:edit, edge)
       = action_link_to :destroy, [@game, @node, edge], method: :delete,
         data: { confirm: t("questions.confirm") }, if: can?(:destroy, edge)
