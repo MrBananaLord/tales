@@ -4,5 +4,12 @@ class Edge < ActiveRecord::Base
   
   delegate :game, to: :tail
   
-  validates :content, presence: true
+  validates :tail, :content, presence: true
+  validates :head, inclusion: { in: :game_nodes }, allow_nil: true
+  
+  private
+  
+  def game_nodes
+    game.nodes
+  end
 end

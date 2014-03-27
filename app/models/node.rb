@@ -6,5 +6,5 @@ class Node < ActiveRecord::Base
   has_many :parent_edges, foreign_key: :head_id, class_name: "Edge"
   has_many :predecessors, through: :parent_edges, source: :tail
   
-  validates :content, presence: true
+  validates :game, :content, presence: true
 end
