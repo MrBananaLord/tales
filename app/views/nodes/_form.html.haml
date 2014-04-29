@@ -1,5 +1,0 @@
-= simple_form_for [@game, @node] do |f|
-  - if @edge.present?
-    = hidden_field "", :edge_id, value: @edge.id
-  = f.input :content
-  = f.button :submit

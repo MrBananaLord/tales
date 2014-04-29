@@ -1,4 +1,0 @@
-= simple_form_for [@game, @node, @edge] do |f|
-  = f.input :content
-  = f.association :head, label_method: :content, collection: @game.nodes
-  = f.button :submit

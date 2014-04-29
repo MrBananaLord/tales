@@ -1,0 +1,4 @@
+= simple_form_for [@game, @paragraph, @choice] do |f|
+  = f.input :content
+  = f.association :head, label_method: :content, collection: @game.paragraphs
+  = f.button :submit

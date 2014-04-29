@@ -1,0 +1,21 @@
+.page-header
+  %h1= title @game.name
+%p= @paragraph.content
+
+= action_link_to :edit, [:edit, @game, @paragraph], if: can?(:edit, @paragraph)
+= action_link_to :destroy, [@game, @paragraph], method: :delete,
+  data: { confirm: t("questions.confirm") }, if: can?(:destroy, @paragraph)
+  
+= action_link_to t(".new_choice"), [:new, @game, @paragraph, :choice],
+  if: can?(:new, Choice.new(tail: @paragraph))
+
+.list-group
+  - @paragraph.children_choices.each do |choice|
+    .list-group-item
+      = link_to_unless choice.head.nil?, choice.content, [@game, choice.head]
+      = action_link_to t(".new_head"), new_game_paragraph_path(params: { choice_id: choice.id }),
+        if: can?(:new, choice.build_head)
+      = action_link_to :edit, [:edit, @game, @paragraph, choice], if: can?(:edit, choice)
+      = action_link_to :destroy, [@game, @paragraph, choice], method: :delete,
+        data: { confirm: t("questions.confirm") }, if: can?(:destroy, choice)
+  

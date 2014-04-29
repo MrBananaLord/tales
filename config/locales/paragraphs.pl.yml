@@ -1,12 +1,12 @@
 pl:
   activerecord:
     attributes:
-      node:
+      paragraph:
         content: "Treść"
-  nodes:
+  paragraphs:
     new:
       heading: "Dodawanie fragmentu"
     edit:
       heading: "Edytowanie fragmentu"
     show:
-      new_edge: "Dodaj odpowiedź"
+      new_choice: "Dodaj odpowiedź"

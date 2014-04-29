@@ -1,10 +1,10 @@
 pl:
   activerecord:
     attributes:
-      edge:
+      choice:
         content: "Treść"
         head: "Fragment docelowy"
-  edges:
+  choices:
     new:
       heading: "Dodawanie odpowiedzi"
     edit:

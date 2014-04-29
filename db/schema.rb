@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140325210441) do
+ActiveRecord::Schema.define(version: 20140429122937) do
 
-  create_table "edges", force: true do |t|
+  create_table "choices", force: true do |t|
     t.text     "content"
     t.integer  "tail_id"
     t.integer  "head_id"
@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 20140325210441) do
     t.datetime "updated_at"
   end
 
-  add_index "edges", ["head_id"], name: "index_edges_on_head_id"
-  add_index "edges", ["tail_id"], name: "index_edges_on_tail_id"
+  add_index "choices", ["head_id"], name: "index_choices_on_head_id"
+  add_index "choices", ["tail_id"], name: "index_choices_on_tail_id"
 
   create_table "games", force: true do |t|
     t.string   "name"
@@ -37,14 +37,14 @@ ActiveRecord::Schema.define(version: 20140325210441) do
   add_index "games", ["first_node_id"], name: "index_games_on_first_node_id"
   add_index "games", ["owner_id"], name: "index_games_on_owner_id"
 
-  create_table "nodes", force: true do |t|
+  create_table "paragraphs", force: true do |t|
     t.text     "content"
     t.integer  "game_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "nodes", ["game_id"], name: "index_nodes_on_game_id"
+  add_index "paragraphs", ["game_id"], name: "index_paragraphs_on_game_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
