@@ -22,4 +22,18 @@ module Authorization
       redirect_to root_path, alert: I18n.t("statements.access_denied")
     end
   end
+  
+  def after_sign_in_path_for(resource)
+    if resource.is_a?(User) && session[:previous_url]
+      session[:previous_url]
+    else
+      user_path(resource)
+    end
+  end
+  
+  def store_location
+    unless devise_controller?
+      session[:previous_url] = request.fullpath
+    end
+  end
 end
