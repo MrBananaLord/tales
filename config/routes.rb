@@ -1,7 +1,11 @@
 Tales::Application.routes.draw do
   localized do
     devise_for :users, controllers: {
-      omniauth_callbacks: "users/omniauth_callbacks"
+      confirmations: "users/confirmations",
+      omniauth_callbacks: "users/omniauth_callbacks", 
+      passwords: "users/passwords",
+      registrations: "users/registrations", 
+      sessions: "users/sessions"
     }
     resources :users, only: :show
     

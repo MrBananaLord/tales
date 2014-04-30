@@ -1,4 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  layout "authorization"
+  
   def facebook
     service = User::SignInFromFacebookService.new(request.env["omniauth.auth"])
     @user = service.user

@@ -13,6 +13,9 @@
   %body
     = render "header"
     = render "alerts"
-    .container
-      = yield
+    - if content_for? :main_container
+      = yield(:main_container)
+    - else
+      .container
+        = yield
     
