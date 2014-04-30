@@ -2,7 +2,7 @@
 SimpleForm.setup do |config|
   config.error_notification_tag = :div
   config.error_notification_class = 'alert alert-error'
-  config.label_class = "control-label col-sm-2"
+  config.label_class = "control-label"
   config.input_class = "form-control"
   config.button_class = "btn btn-default"
   config.browser_validations = false

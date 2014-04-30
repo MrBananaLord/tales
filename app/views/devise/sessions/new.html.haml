@@ -8,4 +8,7 @@
   = f.input :remember_me, as: :boolean, wrapper: :inline_checkbox
   
   = f.button :button, t(".sign_in")
+  = t(".or")
+  = link_to t(".sign_up_with_facebook"), user_omniauth_authorize_path(:facebook)
+  
 = render "devise/shared/links"

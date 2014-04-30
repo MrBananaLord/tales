@@ -11,4 +11,6 @@
     label_html: { class: "sr-only" }
   .form-actions
     = f.button :button, t(".create_account")
+    = t(".or")
+    = link_to t(".sign_up_with_facebook"), user_omniauth_authorize_path(:facebook)
 = render "devise/shared/links"
