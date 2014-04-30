@@ -4,16 +4,16 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  # config.secret_key = '9bf30b1a91d1f35c804f828661ed63153bb48a85fe01aaa2d56eb78eda44d7a7edb9213c4fb17ded56ad41e95832e13c5a658e28943a77fade3f0c814a728c19'
+  config.secret_key = '9bf30b1a91d1f35c804f828661ed63153bb48a85fe01aaa2d56eb78eda44d7a7edb9213c4fb17ded56ad41e95832e13c5a658e28943a77fade3f0c814a728c19'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'Tales'
 
   # Configure the class responsible to send e-mails.
-  # config.mailer = 'Devise::Mailer'
+  config.mailer = 'Devise::Mailer'
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
@@ -228,6 +228,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
+  config.omniauth :facebook, "1419104098358044", "447d22e373876889d8ee72810601d882"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
@@ -251,4 +252,6 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+  config.omniauth_path_prefix = "/konto/auth"
+  
 end

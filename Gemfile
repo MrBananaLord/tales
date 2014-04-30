@@ -9,6 +9,10 @@ gem 'sqlite3'
 # Autorization and authentication
 gem "devise"
 gem "pundit"
+gem 'omniauth-facebook'
+
+# Facebook
+# gem "koala"
 
 # Assets
 gem "sass-rails", "~> 4.0.0"
