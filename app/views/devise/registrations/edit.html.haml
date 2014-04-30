@@ -1,7 +1,8 @@
 %h1= title t(".heading")
 = simple_form_for resource, as: resource_name,
   url: registration_path(resource_name), method: :put do |f|
-  = f.input :email, required: true, autofocus: true
+  = f.input :username, required: true, autofocus: true
+  = f.input :email, required: true
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     .alert.alert-warning= t(".waiting_for_confirmation", email: resource.unconfirmed_email)
   = f.input :password, autocomplete: "off", hint: t(".leave_blank_or_change"),

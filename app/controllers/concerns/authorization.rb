@@ -3,6 +3,8 @@ module Authorization
   include Pundit
   
   included do
+    before_filter :configure_permitted_parameters, if: :devise_controller?
+    
     rescue_from Pundit::NotAuthorizedError, with: :access_denied
     helper_method :can?
   end
@@ -34,6 +36,21 @@ module Authorization
   def store_location
     unless devise_controller?
       session[:previous_url] = request.fullpath
+    end
+  end
+  
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) do |u|
+      u.permit(:username, :email, :password, :password_confirmation, :remember_me)
+    end
+    devise_parameter_sanitizer.for(:sign_in) do |u|
+      u.permit(:login, :username, :email, :password, :remember_me)
+    end
+    devise_parameter_sanitizer.for(:account_update) do |u|
+      u.permit(:username, :email, :password, :password_confirmation,
+               :current_password)
     end
   end
 end

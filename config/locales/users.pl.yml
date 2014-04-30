@@ -6,9 +6,11 @@ pl:
       user: &user_attributes
         current_password: "Aktualne hasło"
         email: "Adres e-mail"
+        login: "Login"
         password: "Hasło"
         password_confirmation: "Potwierdzenie hasła"
         remember_me: "Zapamiętaj mnie"
+        username: "Nazwa użytkownika"
 
   simple_form:
     placeholders:

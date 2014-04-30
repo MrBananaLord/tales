@@ -1,6 +1,8 @@
 %h1= title t(".heading")
 = simple_form_for(resource, :as => resource_name,
   :url => registration_path(resource_name)) do |f|
+  = f.input :username, :required => true,
+    label_html: { class: "sr-only" }
   = f.input :email, :required => true, :autofocus => true,
     label_html: { class: "sr-only" }
   = f.input :password, :required => true,

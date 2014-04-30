@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140430145030) do
+ActiveRecord::Schema.define(version: 20140430175952) do
 
   create_table "choices", force: true do |t|
     t.text     "content"
@@ -65,10 +65,12 @@ ActiveRecord::Schema.define(version: 20140430145030) do
     t.datetime "updated_at"
     t.string   "provider_type"
     t.string   "provider_id"
+    t.string   "username"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["username"], name: "index_users_on_username", unique: true
 
 end
