@@ -3,15 +3,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def update
     @user = current_user
-    
     successfully_updated = if @user.needs_password?
-      @user.update_with_password(devise_parameter_sanitizer.sanitize(:account_update))
+      @user.update_with_password(account_params)
     else
       params[:user].delete(:current_password)
       params[:user].delete(:password)
       params[:user].delete(:password_confirmation)
       params[:user].delete(:email)
-      @user.update_without_password(devise_parameter_sanitizer.sanitize(:account_update))
+      @user.update_without_password(account_params)
     end
     
     if successfully_updated
@@ -28,5 +27,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def after_update_path_for(resource)
     user_path(resource)
+  end
+  
+  def account_params
+    params.require(:user).permit(:username, :password, :password_confirmation,
+                                 :current_password, :avatar, :avatar_cache)
   end
 end
