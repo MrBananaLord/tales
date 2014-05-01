@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
       where(conditions).first
     end
   end
+  
+  def needs_password?
+    provider_type.nil?
+  end
 end
