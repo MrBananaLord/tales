@@ -1,6 +1,6 @@
 %h1= t(".heading")
 = simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f|
   = f.full_error :confirmation_token
-  = f.input :email, :required => true, :autofocus => true
+  = f.input :login, :required => true, :autofocus => true
   = f.button :submit, t(".resend")
 = render "devise/shared/links"
