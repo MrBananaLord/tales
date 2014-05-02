@@ -29,7 +29,7 @@ class User::SignInFromFacebookService
       confirmed_at: Time.now,
       provider_type: provider, 
       provider_id: user_id,
-      #remote_avatar_url: profile_picture_url
+      remote_avatar_url: profile_picture_url
     )
   end
   
@@ -53,14 +53,14 @@ class User::SignInFromFacebookService
     auth.uid
   end
   
-  #  def profile_picture_url
-  #    @profile_picture_url ||= graph.get_picture("me", type: "large")
-  #  end
-  
-  #  def graph
-  #    @graph ||= Koala::Facebook::API.new(access_token)
-  #  end
-  
+  def profile_picture_url
+    @profile_picture_url ||= graph.get_picture("me", type: "large")
+  end
+
+  def graph
+    @graph ||= Koala::Facebook::API.new(access_token)
+  end
+
   def access_token
     auth.credentials.token
   end

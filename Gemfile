@@ -12,7 +12,7 @@ gem "pundit"
 gem 'omniauth-facebook'
 
 # Facebook
-# gem "koala"
+gem "koala"
 
 # Assets
 gem "sass-rails", "~> 4.0.0"
