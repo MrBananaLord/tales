@@ -1,7 +1,9 @@
 .page-header
   %h1
-    = title @game.name
+    = link_to title(@game.name), @game
     %small= t(".all_paragraphs")
+
+= action_link_to t(".new_paragraph"), [:new, @game, :paragraph], if: can?(:edit, @game)
 %table.table.table-hover
   %thead
     %tr

@@ -2,11 +2,11 @@ pl:
   routes:
     cancel: "anuluj"
     confirmation: "potwierdz"
-    choices: "krawedzie"
+    choices: "odpowiedzi"
     edit: "edytuj"
     games: "gry"
     new: "dodaj"
-    paragraphs: "wezly"
+    paragraphs: "paragrafy"
     password: "haslo"
     set_as_first: "ustaw_jako_pierwszy"
     sign_in: "zaloguj"

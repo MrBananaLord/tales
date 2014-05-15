@@ -3,7 +3,7 @@ pl:
     attributes:
       choice:
         content: "Treść"
-        head: "Fragment docelowy"
+        head: "Paragraf docelowy"
   choices:
     new:
       heading: "Dodawanie odpowiedzi"
