@@ -1,7 +1,8 @@
 .page-header
-  %h1= title t(".heading")
-
-= action_link_to :edit, edit_user_registration_path, if: can?(:edit, @user)
+  = image_tag @user.avatar.default.url
+  %h1= title @user.nickname
+  = action_link_to :edit, edit_user_registration_path, if: can?(:edit, @user)
+  
 = action_link_to t(".new_game"), new_game_path, if: can?(:manage, @user)
 - @user.games.each do |game|
   .col-sm-6

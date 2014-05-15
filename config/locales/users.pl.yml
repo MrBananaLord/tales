@@ -16,3 +16,7 @@ pl:
     placeholders:
       user:
         <<: *user_attributes
+  
+  users:
+    show:
+      new_game: "Stwórz nową grę"

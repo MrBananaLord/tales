@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
   def needs_password?
     provider_type.nil?
   end
+  
+  def nickname
+    username || email.split("@").first
+  end
 end
