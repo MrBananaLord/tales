@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140501094408) do
+ActiveRecord::Schema.define(version: 20140515193009) do
 
   create_table "choices", force: true do |t|
     t.text     "content"
@@ -29,12 +29,12 @@ ActiveRecord::Schema.define(version: 20140501094408) do
     t.text     "description"
     t.datetime "published_at"
     t.integer  "owner_id"
-    t.integer  "first_node_id"
+    t.integer  "first_paragraph_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "games", ["first_node_id"], name: "index_games_on_first_node_id"
+  add_index "games", ["first_paragraph_id"], name: "index_games_on_first_paragraph_id"
   add_index "games", ["owner_id"], name: "index_games_on_owner_id"
 
   create_table "paragraphs", force: true do |t|
