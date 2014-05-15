@@ -6,6 +6,10 @@ class GamePolicy < ApplicationPolicy
     user.present?
   end
   
+  def play?
+    record.published? || (manage? && record.first_paragraph.present?)
+  end
+  
   private
   
   def manage?
