@@ -4,6 +4,7 @@ module Authorization
   
   included do
     before_filter :configure_permitted_parameters, if: :devise_controller?
+    after_filter :store_location
     
     rescue_from Pundit::NotAuthorizedError, with: :access_denied
     helper_method :can?
