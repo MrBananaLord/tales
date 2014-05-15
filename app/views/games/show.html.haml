@@ -5,6 +5,7 @@
     data: { confirm: t("questions.confirm") }, if: can?(:destroy, @game)
 %p= @game.description
 
+= action_link_to t(".play"), @game.first_paragraph, if: can?(:play, @game)
 = action_link_to t(".new_paragraph"), [:new, @game, :paragraph], if: can?(:edit, @game)
 = action_link_to t(".all_paragraphs"), [@game, :paragraphs], if: can?(:edit, @game)
 

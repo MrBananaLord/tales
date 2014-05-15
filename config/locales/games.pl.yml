@@ -7,3 +7,6 @@ pl:
   games:
     new:
       heading: "Nowa gra"
+    show:
+      all_paragraphs: "Wszystkie paragrafy"
+      new_paragraph: "Dodaj paragraf"
