@@ -10,6 +10,7 @@ Tales::Application.routes.draw do
     resources :users, only: :show
     
     resources :games, except: :index do
+      get "publish", to: "games#publish", on: :member
       resources :paragraphs do
         get "set_as_first", to: "paragraphs#set_as_first", on: :member
         resources :choices, except: [:index, :show]

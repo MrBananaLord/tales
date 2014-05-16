@@ -24,4 +24,5 @@ pl:
     destroyed: "Usunięto"
     or: " lub "
     login_required: "Logowanie wymagane"
+    published: "Opublikowano"
     updated: "Zapisano zmiany"

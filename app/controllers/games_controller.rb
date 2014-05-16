@@ -1,7 +1,8 @@
 class GamesController < ApplicationController
   
   before_filter :authenticate_user!
-  before_filter :load_and_authorize_game, only: [:edit, :update, :show, :destroy]
+  before_filter :load_and_authorize_game, only: [:edit, :update, :show,
+                                                 :destroy, :publish]
   
   def new
     @game = current_user.games.build
@@ -36,6 +37,11 @@ class GamesController < ApplicationController
   def destroy
     @game.destroy
     redirect_to current_user, notice: I18n.t("statements.destroyed")
+  end
+  
+  def publish
+    @game.update_column :published_at, Time.now
+    redirect_to @game, notice: I18n.t("statements.published")
   end
   
   private

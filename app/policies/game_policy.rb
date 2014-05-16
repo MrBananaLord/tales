@@ -13,6 +13,10 @@ class GamePolicy < ApplicationPolicy
     record.published? || (manage? && record.first_paragraph.present?)
   end
   
+  def publish?
+    manage? && !record.published?
+  end
+  
   private
   
   def manage?
@@ -20,6 +24,6 @@ class GamePolicy < ApplicationPolicy
   end
   
   def read?
-    true
+    manage? || record.published?
   end
 end
