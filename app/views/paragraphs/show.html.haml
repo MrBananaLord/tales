@@ -1,10 +1,19 @@
 .page-header
   %h1= link_to title(@game.name), @game
 
-%h2= t(".parent_paragraphs")
-%ul
-  - @paragraph.parent_paragraphs.each do |parent_paragraph|
-    %li= link_to parent_paragraph.content, [@game, parent_paragraph]
+- if @paragraph.parent_choices.any?
+  %h2= t(".parent_actions")
+  // TODO: switch to table
+  %ul
+    - @paragraph.parent_choices.each do |parent_choice|
+      %li
+        %dl
+          %dt= t(".parent_paragraph")
+          %dd
+            = link_to parent_choice.parent_paragraph.content,
+              [@game, parent_choice.parent_paragraph]
+          %dt= t(".parent_choice")
+          %dd= parent_choice.content
 
 %p= @paragraph.content
 
@@ -22,7 +31,7 @@
         [@game, choice.child_paragraph]
       = action_link_to t(".new_child_paragraph"),
         new_game_paragraph_path(params: { choice_id: choice.id }),
-        if: !choice.child_paragraph.present? && can?(:new, choice.build_child_paragraph)
+        if: !choice.child_paragraph.present? && can?(:new, @game.paragraphs.build)
       = action_link_to :edit, [:edit, @game, @paragraph, choice], if: can?(:edit, choice)
       = action_link_to :destroy, [@game, @paragraph, choice], method: :delete,
         data: { confirm: t("questions.confirm") }, if: can?(:destroy, choice)

@@ -14,4 +14,5 @@ pl:
       heading: "Edytowanie paragrafu"
     show:
       new_choice: "Dodaj odpowiedź"
-      new_head: "Dodaj paragraf docelowy"
+      new_child_paragraph: "Dodaj paragraf docelowy"
+      parent_actions: "Wybory prowadzące do tego paragrafu"
