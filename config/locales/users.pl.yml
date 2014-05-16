@@ -19,4 +19,5 @@ pl:
   
   users:
     show:
+      created_games: "Stworzone gry"
       new_game: "Stwórz nową grę"

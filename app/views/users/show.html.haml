@@ -4,12 +4,25 @@
   = action_link_to :edit, edit_user_registration_path, if: can?(:edit, @user)
   
 = action_link_to t(".new_game"), new_game_path, if: can?(:manage, @user)
-- @user.games.each do |game|
-  .col-sm-6
-    .thumbnail
-      %h3= game.name
-      %p= game.description
-      = action_link_to :show, game, if: can?(:show, game)
-      = action_link_to :edit, [:edit, game], if: can?(:edit, game)
-      = action_link_to :destroy, game, method: :delete,
-        data: { confirm: t("questions.confirm") }, if: can?(:destroy, game)
+
+- if @user_games.any?
+  %h2= t(".created_games")
+  - @user_games.each do |game|
+    .col-sm-6
+      .thumbnail
+        %h3= game.name
+        %p= game.description
+        = action_link_to :show, game, if: can?(:show, game)
+        = action_link_to :edit, [:edit, game], if: can?(:edit, game)
+        = action_link_to :destroy, game, method: :delete,
+          data: { confirm: t("questions.confirm") }, if: can?(:destroy, game)
+
+//- @user.favourite_games.each do |game|
+//  .col-sm-6
+//    .thumbnail
+//      %h3= game.name
+//      %p= game.description
+//      = action_link_to :show, game, if: can?(:show, game)
+//      = action_link_to :edit, [:edit, game], if: can?(:edit, game)
+//      = action_link_to :destroy, game, method: :delete,
+//        data: { confirm: t("questions.confirm") }, if: can?(:destroy, game)
