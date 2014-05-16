@@ -15,7 +15,7 @@
       = link_to_unless choice.head.nil?, choice.content, [@game, choice.head]
       = action_link_to t(".new_head"),
         new_game_paragraph_path(params: { choice_id: choice.id }),
-        if: can?(:new, choice.build_head)
+        if: !choice.head.present? && can?(:new, choice.build_head)
       = action_link_to :edit, [:edit, @game, @paragraph, choice], if: can?(:edit, choice)
       = action_link_to :destroy, [@game, @paragraph, choice], method: :delete,
         data: { confirm: t("questions.confirm") }, if: can?(:destroy, choice)

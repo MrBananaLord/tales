@@ -9,7 +9,7 @@ class ParagraphPolicy < ApplicationPolicy
   private
   
   def manage?
-    user == record.game.owner
+    user == record.game.owner && !record.game.published?
   end
   
   def read?
