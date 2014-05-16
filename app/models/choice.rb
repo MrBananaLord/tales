@@ -1,11 +1,11 @@
 class Choice < ActiveRecord::Base
-  belongs_to :tail, class_name: "Paragraph"
-  belongs_to :head, class_name: "Paragraph"
+  belongs_to :parent_paragraph, class_name: "Paragraph"
+  belongs_to :child_paragraph, class_name: "Paragraph"
   
-  delegate :game, to: :tail
+  delegate :game, to: :parent_paragraph
   
-  validates :tail, :content, presence: true
-  validates :head, inclusion: { in: :game_paragraphs }, allow_nil: true
+  validates :parent_paragraph, :content, presence: true
+  validates :child_paragraph, inclusion: { in: :game_paragraphs }, allow_nil: true
   
   def build_head
     super(game: game)

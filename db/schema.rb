@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515193009) do
+ActiveRecord::Schema.define(version: 20140516081442) do
 
   create_table "choices", force: true do |t|
     t.text     "content"
-    t.integer  "tail_id"
-    t.integer  "head_id"
+    t.integer  "parent_paragraph_id"
+    t.integer  "child_paragraph_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "choices", ["head_id"], name: "index_choices_on_head_id"
-  add_index "choices", ["tail_id"], name: "index_choices_on_tail_id"
+  add_index "choices", ["child_paragraph_id"], name: "index_choices_on_child_paragraph_id"
+  add_index "choices", ["parent_paragraph_id"], name: "index_choices_on_parent_paragraph_id"
 
   create_table "games", force: true do |t|
     t.string   "name"
