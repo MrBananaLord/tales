@@ -56,6 +56,6 @@ class ChoicesController < ApplicationController
   end
 
   def choice_params
-    params.require(:choice).permit(:content, :head_id)
+    params.require(:choice).permit(:content, :child_paragraph_id)
   end
 end
