@@ -29,7 +29,7 @@ pl:
         submit: "Zmień hasło"
     registrations:
       edit:
-        current_password_required: "Podaj aktualne hasło, żeby zatwierdzić zmiany."
+        current_password_required: "Podaj stare hasło, jeżeli zmieniasz je na nowe."
         heading: "Edytowanie konta"
         leave_blank_or_change: "Pozostaw puste jeżeli nie chcesz zmieniać."
         remove_account: "Usuń konto"

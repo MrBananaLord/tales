@@ -10,12 +10,11 @@
     input_html: { disabled: resource.provider_type.present? }
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     .alert.alert-warning= t(".waiting_for_confirmation", email: resource.unconfirmed_email)
-  - if f.object.needs_password?
+  - if f.object.provider_type.nil?
     = f.input :password, autocomplete: "off", hint: t(".leave_blank_or_change"),
       required: false
     = f.input :password_confirmation, required: false
-    = f.input :current_password, hint: t(".current_password_required"),
-      required: true
+    = f.input :current_password, hint: t(".current_password_required")
   .form-actions
     = f.button :submit
 
