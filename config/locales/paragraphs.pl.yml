@@ -16,3 +16,5 @@ pl:
       new_choice: "Dodaj odpowiedź"
       new_child_paragraph: "Dodaj paragraf docelowy"
       parent_actions: "Wybory prowadzące do tego paragrafu"
+      parent_choice_content: "Odpowiedź"
+      parent_paragraph_content: "Paragraf"

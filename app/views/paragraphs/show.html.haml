@@ -3,17 +3,20 @@
 
 - if @paragraph.parent_choices.any?
   %h2= t(".parent_actions")
-  // TODO: switch to table
-  %ul
-    - @paragraph.parent_choices.each do |parent_choice|
-      %li
-        %dl
-          %dt= t(".parent_paragraph")
-          %dd
+  %table.table.table-hover
+    %thead
+      %tr
+        %th ID
+        %th= t(".parent_paragraph_content")
+        %th= t(".parent_choice_content")
+    %tbody
+      - @paragraph.parent_choices.each do |parent_choice|
+        %tr
+          %td= parent_choice.parent_paragraph.id
+          %td
             = link_to parent_choice.parent_paragraph.content,
               [@game, parent_choice.parent_paragraph]
-          %dt= t(".parent_choice")
-          %dd= parent_choice.content
+          %td= parent_choice.content
 
 %p= @paragraph.content
 
