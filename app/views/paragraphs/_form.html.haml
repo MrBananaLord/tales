@@ -2,4 +2,5 @@
   - if @choice.present?
     = hidden_field "", :choice_id, value: @choice.id
   = f.input :content
-  = f.button :submit
+  
+  = basic_actions f, @paragraph.persisted? ? [@game, @paragraph] : @game

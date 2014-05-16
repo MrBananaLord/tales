@@ -14,7 +14,7 @@
     - @paragraphs.each do |paragraph|
       %tr
         %td= link_to paragraph.id, [@game, paragraph]
-        %td= paragraph.content
+        %td= link_to paragraph.content, [@game, paragraph]
         %td
           .btn-group
             %button.btn.btn-default.btn-xs.dropdown-toggle{ data: { toggle: :dropdown } }
