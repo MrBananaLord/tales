@@ -3,7 +3,7 @@ pl:
     attributes:
       choice:
         content: "Treść"
-        head: "Paragraf docelowy"
+        child_paragraph: "Paragraf docelowy"
   choices:
     new:
       heading: "Dodawanie odpowiedzi"
