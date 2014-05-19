@@ -1,6 +1,5 @@
 class GamesController < ApplicationController
   
-  before_filter :authenticate_user!
   before_filter :load_and_authorize_game, only: [:edit, :update, :show,
                                                  :destroy, :publish]
   

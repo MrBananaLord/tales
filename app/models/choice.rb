@@ -1,8 +1,7 @@
 class Choice < ActiveRecord::Base
   belongs_to :parent_paragraph, class_name: "Paragraph"
   belongs_to :child_paragraph, class_name: "Paragraph"
-  
-  delegate :game, to: :parent_paragraph
+  has_one :game, through: :parent_paragraph  
   
   validates :parent_paragraph, :content, presence: true
   validates :child_paragraph, inclusion: { in: :game_paragraphs }, allow_nil: true

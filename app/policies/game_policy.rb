@@ -1,7 +1,11 @@
 class GamePolicy < ApplicationPolicy
   class Scope < ApplicationPolicy::Scope      
     def resolve
-      scope.where("owner_id = ? OR published_at < ?", user.id, Time.now)
+      if user
+        scope.where("owner_id = ? OR published_at < ?", user.id, Time.now)
+      else
+        scope.published
+      end
     end
   end
   

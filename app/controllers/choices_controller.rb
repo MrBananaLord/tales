@@ -1,6 +1,5 @@
 class ChoicesController < ApplicationController
   
-  before_filter :authenticate_user!
   before_filter :load_game
   before_filter :load_paragraph
   before_filter :load_and_authorize_choice, only: [:edit, :update, :destroy]

@@ -1,5 +1,5 @@
 class ChoicePolicy < ApplicationPolicy
-  class Scope < ApplicationPolicy::Scope      
+  class Scope < ApplicationPolicy::Scope
   end
   
   private

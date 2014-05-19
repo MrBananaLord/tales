@@ -1,7 +1,7 @@
 .page-header
   %h1= link_to title(@game.name), @game
 
-- if @paragraph.parent_choices.any? && can?(:edit, @game)
+- if @parent_choices.any?
   %h2= t(".parent_actions")
   %table.table.table-hover
     %thead
@@ -30,7 +30,7 @@
 
   .panel-footer
     .list-group
-      - @paragraph.children_choices.each do |choice|
+      - @children_choices.each do |choice|
         .list-group-item
           = link_to_unless choice.child_paragraph.nil?, choice.content,
             [@game, choice.child_paragraph]

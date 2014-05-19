@@ -6,6 +6,8 @@ class Game < ActiveRecord::Base
   
   validates :name, presence: true
   
+  scope :published, -> { where("published_at < ?", Time.now) }
+  
   def published?
     published_at.present?
   end

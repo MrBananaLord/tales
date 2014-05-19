@@ -1,6 +1,5 @@
 class ParagraphsController < ApplicationController
   
-  before_filter :authenticate_user!
   before_filter :load_game
   before_filter :load_choice, only: [:new, :create]
   before_filter :load_and_authorize_paragraph, except: [:new, :create, :index]
@@ -23,6 +22,10 @@ class ParagraphsController < ApplicationController
   end
   
   def show
+    @parent_choices = ParentChoicePolicy::Scope.new(current_user,
+      @paragraph.parent_choices).resolve
+    @children_choices = ChildrenChoicePolicy::Scope.new(current_user,
+      @paragraph.children_choices).resolve
   end
   
   def edit

@@ -10,12 +10,8 @@
   - @user_games.each do |game|
     .col-sm-6
       .thumbnail
-        %h3= game.name
+        %h3= link_to_if can?(:show, game), game.name, game
         %p= game.description
-        = action_link_to :show, game, if: can?(:show, game)
-        = action_link_to :edit, [:edit, game], if: can?(:edit, game)
-        = action_link_to :destroy, game, method: :delete,
-          data: { confirm: t("questions.confirm") }, if: can?(:destroy, game)
 
 //- @user.favourite_games.each do |game|
 //  .col-sm-6

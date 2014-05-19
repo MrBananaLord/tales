@@ -6,6 +6,10 @@ class UserPolicy < ApplicationPolicy
     !user.present?
   end
   
+  def show?
+    true
+  end
+  
   private
   
   def read?

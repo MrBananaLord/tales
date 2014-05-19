@@ -1,7 +1,8 @@
 .page-header
   %h1= title @game.name
   = action_link_to t(".play"), [@game, @game.first_paragraph], if: can?(:play, @game)
-  = action_link_to t(".publish"), [:publish, @game], if: can?(:publish, @game)
+  = action_link_to t(".publish"), [:publish, @game],
+    data: { confirm: t("questions.confirm") }, if: can?(:publish, @game)
   = action_link_to :edit, [:edit, @game], if: can?(:edit, @game)
   = action_link_to :destroy, @game, method: :delete,
     data: { confirm: t("questions.confirm") }, if: can?(:destroy, @game)
