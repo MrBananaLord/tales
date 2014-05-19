@@ -10,5 +10,7 @@
 = action_link_to t(".new_paragraph"), [:new, @game, :paragraph], if: can?(:edit, @game)
 = action_link_to t(".all_paragraphs"), [@game, :paragraphs], if: can?(:edit, @game)
 
+= render "games/mark_form"
+
 %p= @game.description
 

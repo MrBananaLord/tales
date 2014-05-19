@@ -20,6 +20,7 @@ class GamesController < ApplicationController
   end
   
   def show
+    @mark = Mark.find_or_initialize_by(user: current_user, game: @game)
   end
   
   def edit

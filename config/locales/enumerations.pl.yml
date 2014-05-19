@@ -1,0 +1,9 @@
+pl:
+  enumerations:
+    mark:
+      value:
+        "1": "Bardzo słaba"
+        "2": "Słaba"
+        "3": "Średnia"
+        "4": "Dobra"
+        "5": "Bardzo dobra"

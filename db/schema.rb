@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140516081442) do
+ActiveRecord::Schema.define(version: 20140519113029) do
 
   create_table "choices", force: true do |t|
     t.text     "content"
@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(version: 20140516081442) do
 
   add_index "games", ["first_paragraph_id"], name: "index_games_on_first_paragraph_id"
   add_index "games", ["owner_id"], name: "index_games_on_owner_id"
+
+  create_table "marks", force: true do |t|
+    t.integer  "game_id"
+    t.integer  "user_id"
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "marks", ["game_id"], name: "index_marks_on_game_id"
+  add_index "marks", ["user_id"], name: "index_marks_on_user_id"
 
   create_table "paragraphs", force: true do |t|
     t.text     "content"

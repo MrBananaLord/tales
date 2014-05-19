@@ -1,4 +1,4 @@
-class SetParagraphAsFirst
+class SetParagraphAsFirstService
   def initialize(paragraph)
     @success = true
     @paragraph = paragraph

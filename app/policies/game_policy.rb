@@ -21,6 +21,10 @@ class GamePolicy < ApplicationPolicy
     manage? && !record.published?
   end
   
+  def mark?
+    user.present? && record.published?
+  end
+  
   private
   
   def manage?

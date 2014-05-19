@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
          
   has_many :games, dependent: :destroy, foreign_key: "owner_id"
+  has_many :marks, dependent: :destroy
   
   validates :username, uniqueness: { case_sensitive: false }
   

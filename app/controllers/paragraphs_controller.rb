@@ -50,7 +50,7 @@ class ParagraphsController < ApplicationController
   end
   
   def set_as_first
-    if SetParagraphAsFirst.new(@paragraph).call.success?
+    if SetParagraphAsFirstService.new(@paragraph).call.success?
       flash[:notice] = I18n.t("statements.updated")
     else
       flash[:alert] = I18n.t("statements.failed_try_again")
