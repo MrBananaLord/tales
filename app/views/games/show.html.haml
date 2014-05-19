@@ -1,5 +1,6 @@
 .page-header
-  %h1= title @game.name
+  = game_header
+  
   = action_link_to t(".play"), [@game, @game.first_paragraph], if: can?(:play, @game)
   = action_link_to t(".publish"), [:publish, @game],
     data: { confirm: t("questions.confirm") }, if: can?(:publish, @game)

@@ -1,5 +1,0 @@
-pl:
-  activerecord:
-    attributes:
-      mark:
-        value: "Ocena"

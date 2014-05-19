@@ -7,6 +7,9 @@ pl:
   games:
     edit:
       heading: "Edytowanie gry"
+    mark_form:
+      change_mark: "Zmień ocenę"
+      mark: "Oceń"
     new:
       heading: "Nowa gra"
     show:
