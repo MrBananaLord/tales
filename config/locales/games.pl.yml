@@ -5,6 +5,8 @@ pl:
         description: "Opis"
         name: "Nazwa"
   games:
+    edit:
+      heading: "Edytowanie gry"
     new:
       heading: "Nowa gra"
     show:

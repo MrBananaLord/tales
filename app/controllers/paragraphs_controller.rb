@@ -4,6 +4,7 @@ class ParagraphsController < ApplicationController
   before_filter :load_game
   before_filter :load_choice, only: [:new, :create]
   before_filter :load_and_authorize_paragraph, except: [:new, :create, :index]
+  before_filter :set_scope, only: :index
   
   def new
     @paragraph = @game.paragraphs.build(parent_choices: parent_choices)
@@ -42,7 +43,7 @@ class ParagraphsController < ApplicationController
   
   def index
     authorize @game, :edit?
-    @paragraphs = @game.paragraphs
+    @paragraphs = @game.paragraphs.send(@scope)
   end
   
   def set_as_first
@@ -75,5 +76,13 @@ class ParagraphsController < ApplicationController
   
   def load_choice
     @choice = @game.choices.find_by(id: params[:choice_id])
+  end
+  
+  def set_scope
+    @scope = if params[:filter].in?(Paragraph::FILTERS)
+      params[:filter].to_sym
+    else
+      :all
+    end
   end
 end

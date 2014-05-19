@@ -1,4 +1,5 @@
 class Paragraph < ActiveRecord::Base
+  FILTERS = %w(final unassigned with_childless_choices)
   belongs_to :game
   has_many :children_choices, foreign_key: :parent_paragraph_id,
            class_name: "Choice", dependent: :destroy
@@ -7,6 +8,21 @@ class Paragraph < ActiveRecord::Base
   has_many :parent_paragraphs, through: :parent_choices, source: :parent_paragraph
   
   accepts_nested_attributes_for :parent_choices
+  
+  scope :final, -> {
+    includes(:children_choices).
+    where(choices: { parent_paragraph_id: nil }) }
+  scope :not_beginning, -> {
+    joins(:game).
+    where("paragraphs.game_id != paragraphs.id") }
+  scope :unassigned, -> {
+    includes(:parent_choices).
+    where(choices: { child_paragraph_id: nil }).
+    not_beginning }
+  scope :with_childless_choices, -> {
+    joins(:children_choices).
+    where(choices: { child_paragraph_id: nil }).
+    group("paragraphs.id") }
   
   validates :game, :content, presence: true
 end
