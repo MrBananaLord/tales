@@ -3,15 +3,22 @@ pl:
     attributes:
       paragraph:
         content: "Treść"
+  paragraph:
+    filters:
+      all: "wszystkie"
+      final: "końcowe"
+      unassigned: "nieprzypisane"
+      with_childless_choices: "z odpowiedziami bez paragrafu docelowego"
   paragraphs:
+    edit:
+      heading: "Edytowanie paragrafu"
     index:
-      all_paragraphs: "Wszystkie paragrafy"
+      all_paragraphs: "Paragrafy - %{filter}"
       content: "Treść"
+      filter: "Filtruj: %{filter}"
       new_paragraph: "Dodaj paragraf"
     new:
       heading: "Dodawanie paragrafu"
-    edit:
-      heading: "Edytowanie paragrafu"
     show:
       new_choice: "Dodaj odpowiedź"
       new_child_paragraph: "Dodaj paragraf docelowy"

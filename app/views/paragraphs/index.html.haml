@@ -1,11 +1,15 @@
 .page-header
   %h1
     = link_to title(@game.name), @game
-    %small= t(".all_paragraphs")
+    %small= t(".all_paragraphs", filter: @filter)
 
-= action_link_to t(".new_paragraph"), [:new, @game, :paragraph], if: can?(:edit, @game)
-- Paragraph::FILTERS.each do |filter|
-  = link_to filter, game_paragraphs_url(@game, filter: filter)
+.btn-group.pull-right
+  %button.btn-default.btn.dropdown-toggle{ data: { toggle: :dropdown } }
+    %span= t(".filter", filter: @filter)
+    %span.caret
+  %ul.dropdown-menu{ role: :menu }
+    - Paragraph.filters.each do |filter|
+      %li= link_to filter, game_paragraphs_url(@game, filter: filter.value)
 %table.table.table-hover
   %thead
     %tr

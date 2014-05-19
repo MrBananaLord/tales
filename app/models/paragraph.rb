@@ -1,5 +1,7 @@
 class Paragraph < ActiveRecord::Base
-  FILTERS = %w(final unassigned with_childless_choices)
+  include Filters
+  set_filters :all, :final, :unassigned, :with_childless_choices
+  
   belongs_to :game
   has_many :children_choices, foreign_key: :parent_paragraph_id,
            class_name: "Choice", dependent: :destroy
@@ -25,4 +27,5 @@ class Paragraph < ActiveRecord::Base
     group("paragraphs.id") }
   
   validates :game, :content, presence: true
+  
 end
