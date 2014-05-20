@@ -2,6 +2,7 @@
   .panel.panel-default
     .panel-heading.text-center
       = image_tag @user.avatar.default.url, class: "img-thumbnail"
+      .stars= stars(@user.average_mark)
       %h1= title @user.nickname
     .panel-body
       = action_link_to :edit, edit_user_registration_path, if: can?(:edit, @user)

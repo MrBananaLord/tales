@@ -28,5 +28,11 @@ class User < ActiveRecord::Base
   def favorite_games
     games.ordered_by_average_mark
   end
+
+  def average_mark
+    games.inject(0) do |sum, game|
+      sum += game.average_mark
+    end / games.count
+  end
   
 end
