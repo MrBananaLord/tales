@@ -19,4 +19,15 @@ module ApplicationHelper
       tags.html_safe
     end.html_safe
   end
+  
+  def hamburger_toggler
+    # TODO translate
+    content_tag(:span, "Toggle navigation", class: "sr-only") + hamburger
+  end
+  
+  def hamburger
+    3.times.inject("") do |html, i|
+      html += content_tag(:span, "", class: "icon-bar")
+    end.html_safe
+  end
 end
