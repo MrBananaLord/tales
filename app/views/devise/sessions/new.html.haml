@@ -1,14 +1,16 @@
-%h1= title t(".heading")
-= simple_form_for(resource, :as => resource_name,
-  :url => session_path(resource_name)) do |f|
-  = f.input :login, :required => false, :autofocus => true,
-    label_html: { class: "sr-only" }
-  = f.input :password, :required => false,
-    label_html: { class: "sr-only" }
-  = f.input :remember_me, as: :boolean, wrapper: :inline_checkbox
-  
-  = f.button :button, t(".sign_in")
-  = t(".or")
-  = link_to t(".sign_up_with_facebook"), user_omniauth_authorize_path(:facebook)
-  
-= render "devise/shared/links"
+.panel-heading
+  %h1= title t(".heading")
+.panel-body
+  = simple_form_for(resource, :as => resource_name,
+    :url => session_path(resource_name)) do |f|
+    = f.input :login, :required => false, :autofocus => true,
+      label_html: { class: "sr-only" }
+    = f.input :password, :required => false,
+      label_html: { class: "sr-only" }
+    = f.input :remember_me, as: :boolean, wrapper: :inline_checkbox
+    
+    = f.button :button, t(".sign_in")
+    = t(".or")
+    = link_to t(".sign_up_with_facebook"), user_omniauth_authorize_path(:facebook)
+.panel-footer    
+  = render "devise/shared/links"

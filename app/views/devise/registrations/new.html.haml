@@ -1,16 +1,19 @@
-%h1= title t(".heading")
-= simple_form_for(resource, :as => resource_name,
-  :url => registration_path(resource_name)) do |f|
-  = f.input :username, :required => true,
-    label_html: { class: "sr-only" }
-  = f.input :email, :required => true, :autofocus => true,
-    label_html: { class: "sr-only" }
-  = f.input :password, :required => true,
-    label_html: { class: "sr-only" }
-  = f.input :password_confirmation, :required => true,
-    label_html: { class: "sr-only" }
-  .form-actions
-    = f.button :button, t(".create_account")
-    = t(".or")
-    = link_to t(".sign_up_with_facebook"), user_omniauth_authorize_path(:facebook)
-= render "devise/shared/links"
+.panel-heading
+  %h1= title t(".heading")
+.panel-body
+  = simple_form_for(resource, :as => resource_name,
+    :url => registration_path(resource_name)) do |f|
+    = f.input :username, :required => true,
+      label_html: { class: "sr-only" }
+    = f.input :email, :required => true, :autofocus => true,
+      label_html: { class: "sr-only" }
+    = f.input :password, :required => true,
+      label_html: { class: "sr-only" }
+    = f.input :password_confirmation, :required => true,
+      label_html: { class: "sr-only" }
+    .form-actions
+      = f.button :button, t(".create_account")
+      = t(".or")
+      = link_to t(".sign_up_with_facebook"), user_omniauth_authorize_path(:facebook)
+.panel-footer
+  = render "devise/shared/links"

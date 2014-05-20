@@ -6,11 +6,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
     successfully_updated = if params[:user][:password].present? ||
                               params[:user][:password_confirmation].present?
       @user.update_with_password(account_params)
+    elsif params[:user][:email].present? && @user.provider_type.blank?
+      @user.update_with_password(account_params)
     else
       params[:user].delete(:current_password)
-      params[:user].delete(:email) if @user.provider_type.present?
+      params[:user].delete(:email)
       @user.update_without_password(account_params)
     end
+    
+    # TODO account removal
     
     if successfully_updated
       set_flash_message :notice, :updated
@@ -30,6 +34,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def account_params
     params.require(:user).permit(:username, :password, :password_confirmation,
-                                 :current_password, :avatar, :avatar_cache)
+                                 :current_password, :avatar, :avatar_cache, :email)
   end
 end

@@ -1,5 +1,8 @@
-%h1= t(".heading")
-= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
-  = f.input :login, :required => true, :autofocus => true
-  = f.button :submit, t(".send")
-= render "devise/shared/links"
+.panel-heading
+  %h1= t(".heading")
+.panel-body
+  = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+    = f.input :login, :required => true, :autofocus => true
+    = f.button :submit, t(".send")
+.panel-footer
+  = render "devise/shared/links"
