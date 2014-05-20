@@ -5,6 +5,8 @@ class ParagraphsController < ApplicationController
   before_filter :load_and_authorize_paragraph, except: [:new, :create, :index]
   before_filter :set_filter, only: :index
   
+  layout "game"
+  
   def new
     @paragraph = @game.paragraphs.build(parent_choices: parent_choices)
     authorize @paragraph

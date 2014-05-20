@@ -5,6 +5,12 @@ pl:
         description: "Opis"
         name: "Nazwa"
   games:
+    aside_panel:
+      all_paragraphs: "Wszystkie paragrafy"
+      destroy_game: "Usuń grę"
+      edit_game: "Edytuj grę"
+      new_paragraph: "Dodaj paragraf"
+      publish: "Opublikuj grę"
     edit:
       heading: "Edytowanie gry"
     mark_form:
@@ -13,7 +19,4 @@ pl:
     new:
       heading: "Nowa gra"
     show:
-      all_paragraphs: "Wszystkie paragrafy"
-      new_paragraph: "Dodaj paragraf"
       play: "Graj"
-      publish: "Opublikuj"

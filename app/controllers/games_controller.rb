@@ -3,6 +3,8 @@ class GamesController < ApplicationController
   before_filter :load_and_authorize_game, only: [:edit, :update, :show,
                                                  :destroy, :publish]
   
+  layout "game", except: [:destroy, :new, :create]
+  
   def new
     @game = current_user.games.build
     authorize @game

@@ -4,6 +4,8 @@ class ChoicesController < ApplicationController
   before_filter :load_paragraph
   before_filter :load_and_authorize_choice, only: [:edit, :update, :destroy]
   
+  layout "game"
+  
   def new
     @choice = @paragraph.children_choices.build
     authorize @choice
@@ -18,9 +20,6 @@ class ChoicesController < ApplicationController
     else
       render action: "new"
     end
-  end
-  
-  def show
   end
   
   def edit
