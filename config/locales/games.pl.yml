@@ -10,6 +10,7 @@ pl:
       destroy_game: "Usuń grę"
       edit_game: "Edytuj grę"
       new_paragraph: "Dodaj paragraf"
+      play: "Graj"
       publish: "Opublikuj grę"
     edit:
       heading: "Edytowanie gry"

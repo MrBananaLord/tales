@@ -1,7 +1,7 @@
 - content_for :main_container do
   .container
     = render "games/aside_panel" if @game
-    .col-md-9
+    .col-md-8.col-sm-6
       = yield
 
 = render template: "layouts/application"
