@@ -1,5 +1,8 @@
 .col-sm-6
   .panel.panel-default
-    .panel-body
+    .panel-heading
+      = render "users/mini_profile", user: game.owner
+      .clearfix
       %h3= link_to_if can?(:show, game), game.name_with_stars, game
+    .panel-body
       %p= game.description

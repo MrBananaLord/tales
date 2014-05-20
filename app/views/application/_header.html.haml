@@ -3,19 +3,14 @@
     .navbar-header
       %button.navbar-toggle{ type: "button", data: { toggle: "collapse",
                              target: "#main-nav" } }
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
+        = hamburger_toggler
       = link_to "Tales", root_url, class: "navbar-brand"
     
     #main-nav.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         - if current_user
-          %li.user-data
-            = link_to current_user do
-              %span= current_user.nickname
-              = image_tag current_user.avatar.thumb.url, class: "img-circle"
+          %li
+            = render "users/mini_profile", user: current_user
           %li= link_to t(".sign_out"), destroy_user_session_path, method: :delete
         - else
           %li= link_to t(".sign_up"), new_user_registration_path
