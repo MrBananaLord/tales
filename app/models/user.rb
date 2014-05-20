@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   end
 
   def average_mark
-    if games.any?
+    if games.count > 0
       games.inject(0) do |sum, game|
         sum += game.average_mark
       end / games.count

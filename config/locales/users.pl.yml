@@ -23,3 +23,5 @@ pl:
       edit_profile: "Edytuj profil"
       favorite_games: "Najwyżej ocenione"
       new_game: "Stwórz grę"
+      no_user_games: "Uzytkownik nie stworzył jeszcze żadnej gry."
+      no_user_favorite_games: "Użytkownik nie ocenił jeszcze żadnej gry."

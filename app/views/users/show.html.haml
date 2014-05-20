@@ -17,10 +17,16 @@
     .panel-heading
       %h2= t(".created_games")
     .panel-body
-      = render @user_games
+      - if @user_games.any?
+        = render @user_games
+      - else
+        = t(".no_user_games")
       
   .panel.panel-default
     .panel-heading
       %h2= t(".favorite_games")
     .panel-body
-      = render @user_favorite_games
+      - if @user_favorite_games.any?
+        = render @user_favorite_games
+      - else
+        = t(".no_user_favorite_games")
