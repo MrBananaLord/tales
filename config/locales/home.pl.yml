@@ -1,0 +1,9 @@
+pl:
+  home:
+    index:
+      latest_games: "Najnowsze gry"
+      most_popular_games: "Najpopularniejsze gry"
+      sign_in: "Zaloguj się"
+      sign_up: "Załóż konto"
+      welcome: "Stwórz własną interaktywną opowieść lub zagraj w jedną z gier stworzonych przez innych użytkowników."
+      

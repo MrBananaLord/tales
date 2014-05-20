@@ -1,0 +1,20 @@
+- unless current_user
+  .jumbotron
+    %h1= title "Tales"
+    %p
+      = t(".welcome")
+    = link_to t(".sign_in"), new_user_session_path, class: "btn btn-primary"
+    = link_to t(".sign_up"), new_user_registration_path, class: "btn btn-primary"
+    
+.col-md-6
+  .panel.panel-default
+    .panel-heading
+      %h2= t(".most_popular_games")
+    .panel-body
+      = render @most_popular_games
+.col-md-6
+  .panel.panel-default
+    .panel-heading
+      %h2= t(".latest_games")
+    .panel-body
+      = render @latest_games
