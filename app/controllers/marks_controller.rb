@@ -31,6 +31,7 @@ class MarksController < ApplicationController
   end
   
   def mark_game_service
-    @mark_game_service ||= User::MarkGameService.new(current_user, @game, mark_params)
+    @mark_game_service ||= User::MarkGameService.new(current_user, @game,
+                                                     mark_params[:value])
   end
 end

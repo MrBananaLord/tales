@@ -1,13 +1,13 @@
 class User::MarkGameService
-  def initialize(user, game, mark_params)
+  def initialize(user, game, value)
     @success = true
     @user = user
     @game = game
-    @mark_params = mark_params
+    @value = value.to_i
   end
   
   def call
-    mark.assign_attributes(@mark_params)
+    mark.value = @value
     @success = mark.save
     self
   end
