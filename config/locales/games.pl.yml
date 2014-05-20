@@ -17,6 +17,7 @@ pl:
     mark_form:
       change_mark: "Zmień ocenę"
       mark: "Oceń"
+      your_mark: "Twoja ocena"
     new:
       heading: "Nowa gra"
     show:

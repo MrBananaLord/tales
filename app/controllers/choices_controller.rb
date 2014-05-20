@@ -1,10 +1,8 @@
 class ChoicesController < ApplicationController
-  
-  before_filter :load_game
+  include GameBase
+    
   before_filter :load_paragraph
   before_filter :load_and_authorize_choice, only: [:edit, :update, :destroy]
-  
-  layout "game"
   
   def new
     @choice = @paragraph.children_choices.build
@@ -43,10 +41,6 @@ class ChoicesController < ApplicationController
   def load_and_authorize_choice
     @choice = @paragraph.children_choices.find(params[:id])
     authorize @choice
-  end
-  
-  def load_game
-    @game = Game.find(params[:game_id])
   end
   
   def load_paragraph

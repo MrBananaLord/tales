@@ -1,8 +1,10 @@
 class GamesController < ApplicationController
+  include GameBase
   
-  before_filter :load_and_authorize_game, only: [:edit, :update, :show,
-                                                 :destroy, :publish]
-  
+  before_filter :load_game, only: [:edit, :update, :show,
+                                   :destroy, :publish]
+                                                 
+  before_filter :load_mark, except: [:destroy, :new, :create]
   layout "game", except: [:destroy, :new, :create]
   
   def new
@@ -22,7 +24,6 @@ class GamesController < ApplicationController
   end
   
   def show
-    @mark = Mark.find_or_initialize_by(user_id: current_user.try(:id), game: @game)
   end
   
   def edit
@@ -48,7 +49,7 @@ class GamesController < ApplicationController
   
   private
   
-  def load_and_authorize_game
+  def load_game
     @game = Game.find(params[:id])
     authorize @game
   end
@@ -56,4 +57,6 @@ class GamesController < ApplicationController
   def game_params
     params.require(:game).permit(:name, :description)
   end
+  
+  
 end

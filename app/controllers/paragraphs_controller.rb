@@ -1,11 +1,10 @@
 class ParagraphsController < ApplicationController
+  include GameBase
   
-  before_filter :load_game
   before_filter :load_choice, only: [:new, :create]
   before_filter :load_and_authorize_paragraph, except: [:new, :create, :index]
   before_filter :set_filter, only: :index
   
-  layout "game"
   
   def new
     @paragraph = @game.paragraphs.build(parent_choices: parent_choices)
@@ -65,10 +64,6 @@ class ParagraphsController < ApplicationController
   def load_and_authorize_paragraph
     @paragraph = @game.paragraphs.find(params[:id])
     authorize @paragraph
-  end
-  
-  def load_game
-    @game = Game.find(params[:game_id])
   end
 
   def paragraph_params

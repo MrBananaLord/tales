@@ -50,6 +50,9 @@
                 
           .clearfix
                 
+    - if @paragraph.final?
+      = render "games/mark_form"
+                
     = action_link_to t(".new_choice"), [:new, @game, @paragraph, :choice],
       if: can?(:new, Choice.new(parent_paragraph: @paragraph))
   

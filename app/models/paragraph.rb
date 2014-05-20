@@ -27,5 +27,9 @@ class Paragraph < ActiveRecord::Base
     group("paragraphs.id") }
   
   validates :game, :content, presence: true
+
+  def final?
+    children_choices.empty?
+  end
   
 end

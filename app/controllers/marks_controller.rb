@@ -1,22 +1,16 @@
 class MarksController < ApplicationController
-  
-  before_filter :load_game
+  include GameBase
   
   def create
-    redirect_to @game, after_mark_notification
+    redirect_to session[:previous_url] || @game, after_mark_notification
   end
   
   def update
-    redirect_to @game, after_mark_notification
+    redirect_to session[:previous_url] || @game, after_mark_notification
   end
   
   private
   
-  def load_game
-    @game = Game.find(params[:game_id])
-    authorize @game, :mark?
-  end
-
   def mark_params
     params.require(:mark).permit(:value)
   end  

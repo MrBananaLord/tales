@@ -1,4 +1,6 @@
-= simple_form_for [@game, @mark] do |f|
+%strong= t(".your_mark")
+= simple_form_for [@game, @mark], html: { class: "form-inline mark" } do |f|
   = f.input :value, as: :enumeration, include_blank: false,
-    label: @mark.persisted? ? t(".change_mark") : t(".mark")
-  = f.button :submit
+    label: t(".your_mark"),
+    label_html: { class: "sr-only" }
+  = f.button :submit, @mark.persisted? ? t(".change_mark") : t(".mark")
