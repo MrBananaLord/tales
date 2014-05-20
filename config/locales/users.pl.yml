@@ -19,6 +19,7 @@ pl:
   
   users:
     show:
-      created_games: "Stworzone gry"
+      created_games: "Gry użytkownika"
+      edit_profile: "Edytuj profil"
       favorite_games: "Najwyżej ocenione"
-      new_game: "Stwórz nową grę"
+      new_game: "Stwórz grę"
