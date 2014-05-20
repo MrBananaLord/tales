@@ -6,7 +6,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     successfully_updated = if params[:user][:password].present? ||
                               params[:user][:password_confirmation].present?
       @user.update_with_password(account_params)
-    elsif params[:user][:email].present? && @user.provider_type.blank?
+    elsif params[:user][:email].present? &&
+          @user.provider_type.blank? &&
+          @user.email != params[:user][:email]
       @user.update_with_password(account_params)
     else
       params[:user].delete(:current_password)
