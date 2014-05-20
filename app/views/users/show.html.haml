@@ -8,24 +8,15 @@
       = action_link_to t(".new_game"), new_game_path, if: can?(:create, @user.games.build)
       
 .col-sm-9
-  - if @user_games.any?
-    .panel.panel-default
-      .panel-heading
-        %h2= t(".created_games")
-      .panel-body
-        - @user_games.each do |game|
-          .col-sm-6
-            .panel.panel-default
-              .panel-body
-                %h3= link_to_if can?(:show, game), game.name_with_stars, game
-                %p= game.description
-
-//- @user.favourite_games.each do |game|
-//  .col-sm-6
-//    .thumbnail
-//      %h3= game.name
-//      %p= game.description
-//      = action_link_to :show, game, if: can?(:show, game)
-//      = action_link_to :edit, [:edit, game], if: can?(:edit, game)
-//      = action_link_to :destroy, game, method: :delete,
-//        data: { confirm: t("questions.confirm") }, if: can?(:destroy, game)
+  .panel.panel-default
+    .panel-heading
+      %h2= t(".created_games")
+    .panel-body
+      = render @user_games
+      
+.col-sm-9
+  .panel.panel-default
+    .panel-heading
+      %h2= t(".favorite_games")
+    .panel-body
+      = render @user_favorite_games

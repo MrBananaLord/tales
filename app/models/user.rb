@@ -24,4 +24,9 @@ class User < ActiveRecord::Base
   def nickname
     username || email.split("@").first
   end
+  
+  def favorite_games
+    games.ordered_by_average_mark
+  end
+  
 end

@@ -8,6 +8,8 @@ class Game < ActiveRecord::Base
   validates :name, presence: true
   
   scope :published, -> { where("published_at < ?", Time.now) }
+  scope :ordered_by_average_mark, -> { includes(:marks).group("games.id").
+    order("(sum(marks.value) / count(marks.id)) DESC, count(marks.id) DESC") }
   
   def published?
     published_at.present?

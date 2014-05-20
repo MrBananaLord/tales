@@ -1,0 +1,5 @@
+.col-sm-6
+  .panel.panel-default
+    .panel-body
+      %h3= link_to_if can?(:show, game), game.name_with_stars, game
+      %p= game.description
