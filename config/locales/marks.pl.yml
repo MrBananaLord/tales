@@ -1,0 +1,5 @@
+pl:
+  marks:
+    controller:
+      game_marked: "Zapisano ocenę"
+      marking_game_failed: "Ocenianie nie powiodło się"

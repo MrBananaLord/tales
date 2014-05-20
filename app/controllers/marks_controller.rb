@@ -1,6 +1,5 @@
 class MarksController < ApplicationController
   
-  before_filter :authenticate_user!
   before_filter :load_game
   
   def create
@@ -24,9 +23,9 @@ class MarksController < ApplicationController
   
   def after_mark_notification
     if mark_game_service.call.success?
-      { notice: I18n.t(".game_marked") }
+      { notice: I18n.t("marks.controller.game_marked") }
     else
-      { alert: I18n.t(".marking_game_failed") }
+      { alert: I18n.t("marks.controller.marking_game_failed") }
     end
   end
   
