@@ -1,36 +1,32 @@
-.page-header
-  %h1
-    = link_to title(@game.name), @game
-    %small= t(".all_paragraphs", filter: @filter)
-
-.btn-group.pull-right
-  %button.btn-default.btn.dropdown-toggle{ data: { toggle: :dropdown } }
-    %span= t(".filter", filter: @filter)
-    %span.caret
-  %ul.dropdown-menu{ role: :menu }
-    - Paragraph.filters.each do |filter|
-      %li= link_to filter, game_paragraphs_url(@game, filter: filter.value)
-%table.table.table-hover
-  %thead
-    %tr
-      %th #
-      %th= t(".content")
-      %th
-  %tbody
-    - @paragraphs.each do |paragraph|
+= panelized_page t(".all_paragraphs", filter: @filter) do
+  .btn-group.pull-right
+    %button.btn-default.btn.dropdown-toggle{ data: { toggle: :dropdown } }
+      %span= t(".filter", filter: @filter)
+      %span.caret
+    %ul.dropdown-menu{ role: :menu }
+      - Paragraph.filters.each do |filter|
+        %li= link_to filter, game_paragraphs_url(@game, filter: filter.value)
+  %table.table.table-hover
+    %thead
       %tr
-        %td= link_to paragraph.id, [@game, paragraph]
-        %td= link_to paragraph.content, [@game, paragraph]
-        %td
-          .btn-group
-            %button.btn.btn-default.btn-xs.dropdown-toggle{ data: { toggle: :dropdown } }
-              %span.caret
-            %ul.dropdown-menu{ role: :menu }
-              %li= action_link_to :show, [@game, paragraph], class: ""
-              %li= action_link_to :edit, [:edit, @game, paragraph], class: ""
-              %li.divider
-              %li= action_link_to :set_as_first, [:set_as_first, @game, paragraph], class: ""
-              %li= action_link_to :destroy, [@game, paragraph], class: "",
-                    method: :delete, data: { confirm: t("questions.confirm") }
+        %th #
+        %th= t(".content")
+        %th
+    %tbody
+      - @paragraphs.each do |paragraph|
+        %tr
+          %td= link_to paragraph.id, [@game, paragraph]
+          %td= link_to paragraph.content, [@game, paragraph]
+          %td
+            .btn-group
+              %button.btn.btn-default.btn-xs.dropdown-toggle{ data: { toggle: :dropdown } }
+                %span.caret
+              %ul.dropdown-menu{ role: :menu }
+                %li= action_link_to :show, [@game, paragraph], class: ""
+                %li= action_link_to :edit, [:edit, @game, paragraph], class: ""
+                %li.divider
+                %li= action_link_to :set_as_first, [:set_as_first, @game, paragraph], class: ""
+                %li= action_link_to :destroy, [@game, paragraph], class: "",
+                      method: :delete, data: { confirm: t("questions.confirm") }
 
 

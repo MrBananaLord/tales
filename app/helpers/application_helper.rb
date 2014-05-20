@@ -30,4 +30,28 @@ module ApplicationHelper
       html += content_tag(:span, "", class: "icon-bar")
     end.html_safe
   end
+  
+  def panelized_page(title)
+    content_tag(:div, class: "panel panel-default") do
+      html = content_tag(:div, class: "panel-heading") do
+        content_tag(:h1, title(title))
+      end
+      html += content_tag(:div, class: "panel-body") do
+        yield
+      end
+    end
+  end
+  
+  def caret_menu
+    content_tag(:div, class: "btn-group pull-right") do
+      html = content_tag(:div, data: { toggle: :dropdown },
+                         class: "btn btn-default dropdown-toggle") do
+        content_tag(:span, "", class: "caret")
+      end
+      html += content_tag(:ul, class: "dropdown-menu") do
+        yield
+      end
+      html.html_safe
+    end
+  end
 end

@@ -20,6 +20,10 @@ pl:
     new:
       heading: "Dodawanie paragrafu"
     show:
+      destroy_choice: "Usuń odpowiedź"
+      destroy_paragraph: "Usuń paragraf"
+      edit_choice: "Edytuj odpowiedź"
+      edit_paragraph: "Edytuj paragraf"
       new_choice: "Dodaj odpowiedź"
       new_child_paragraph: "Dodaj paragraf docelowy"
       parent_actions: "Wybory prowadzące do tego paragrafu"

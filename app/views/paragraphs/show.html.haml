@@ -1,29 +1,32 @@
 - if @parent_choices.any?
-  %h2= t(".parent_actions")
-  %table.table.table-hover
-    %thead
-      %tr
-        %th ID
-        %th= t(".parent_paragraph_content")
-        %th= t(".parent_choice_content")
-    %tbody
-      - @paragraph.parent_choices.each do |parent_choice|
-        %tr
-          %td= parent_choice.parent_paragraph.id
-          %td
-            = link_to parent_choice.parent_paragraph.content,
-              [@game, parent_choice.parent_paragraph]
-          %td= parent_choice.content
+  .panel.panel-default
+    .panel-heading
+      %h2= t(".parent_actions")
+    .panel-body
+      %table.table.table-hover
+        %thead
+          %tr
+            %th ID
+            %th= t(".parent_paragraph_content")
+            %th= t(".parent_choice_content")
+        %tbody
+          - @paragraph.parent_choices.each do |parent_choice|
+            %tr
+              %td= parent_choice.parent_paragraph.id
+              %td
+                = link_to parent_choice.parent_paragraph.content,
+                  [@game, parent_choice.parent_paragraph]
+              %td= parent_choice.content
 
 .panel.panel-default
   .panel-body
+    = caret_menu do
+      - if can?(:edit, @paragraph)
+        %li= link_to t(".edit_paragraph"), [:edit, @game, @paragraph]
+      - if can?(:destroy, @paragraph)
+        %li= link_to t(".destroy_paragraph"), [@game, @paragraph],
+            method: :delete, data: { confirm: t("questions.confirm") }
     %p= @paragraph.content
-    = action_link_to :edit, [:edit, @game, @paragraph], if: can?(:edit, @paragraph)
-    = action_link_to :destroy, [@game, @paragraph], method: :delete,
-      data: { confirm: t("questions.confirm") }, if: can?(:destroy, @paragraph)
-      
-    = action_link_to t(".new_choice"), [:new, @game, @paragraph, :choice],
-      if: can?(:new, Choice.new(parent_paragraph: @paragraph))
 
   .panel-footer
     .list-group
@@ -31,12 +34,25 @@
         .list-group-item
           = link_to_unless choice.child_paragraph.nil?, choice.content,
             [@game, choice.child_paragraph]
-          = action_link_to t(".new_child_paragraph"),
-            new_game_paragraph_path(params: { choice_id: choice.id }),
-            if: !choice.child_paragraph.present? && can?(:new, @game.paragraphs.build)
-          = action_link_to :edit, [:edit, @game, @paragraph, choice], if: can?(:edit, choice)
-          = action_link_to :destroy, [@game, @paragraph, choice], method: :delete,
-            data: { confirm: t("questions.confirm") }, if: can?(:destroy, choice)
+            
+          .pull-right
+            - if can?(:manage, choice)
+              = caret_menu do
+                - if can?(:edit, choice)
+                  %li= link_to t(".edit_choice"), [:edit, @game, @paragraph, choice]
+                - if can?(:destroy, choice)
+                  %li= link_to t(".destroy_choice"), [@game, @paragraph, choice],
+                      method: :delete, data: { confirm: t("questions.confirm") }
+            
+          .pull-right
+            - if !choice.child_paragraph.present? && can?(:new, @game.paragraphs.build)
+              = action_link_to t(".new_child_paragraph"),
+                new_game_paragraph_path(params: { choice_id: choice.id })
+                
+          .clearfix
+                
+    = action_link_to t(".new_choice"), [:new, @game, @paragraph, :choice],
+      if: can?(:new, Choice.new(parent_paragraph: @paragraph))
   
 
 
