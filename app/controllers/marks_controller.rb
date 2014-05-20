@@ -4,11 +4,11 @@ class MarksController < ApplicationController
   before_filter :load_game
   
   def create
-    redirect_to (session[:previous_url] || @game), after_mark_notification
+    redirect_to @game, after_mark_notification
   end
   
   def update
-    redirect_to (session[:previous_url] || @game), after_mark_notification
+    redirect_to @game, after_mark_notification
   end
   
   private
