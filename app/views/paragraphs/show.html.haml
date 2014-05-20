@@ -36,14 +36,13 @@
             [@game, choice.child_paragraph]
             
           .pull-right
-            - if can?(:manage, choice)
-              = caret_menu do
-                - if can?(:edit, choice)
-                  %li= link_to t(".edit_choice"), [:edit, @game, @paragraph, choice]
-                - if can?(:destroy, choice)
-                  %li= link_to t(".destroy_choice"), [@game, @paragraph, choice],
-                      method: :delete, data: { confirm: t("questions.confirm") }
-            
+            = caret_menu do
+              - if can?(:edit, choice)
+                %li= link_to t(".edit_choice"), [:edit, @game, @paragraph, choice]
+              - if can?(:destroy, choice)
+                %li= link_to t(".destroy_choice"), [@game, @paragraph, choice],
+                    method: :delete, data: { confirm: t("questions.confirm") }
+          
           .pull-right
             - if !choice.child_paragraph.present? && can?(:new, @game.paragraphs.build)
               = action_link_to t(".new_child_paragraph"),

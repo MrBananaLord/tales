@@ -44,6 +44,8 @@ module ApplicationHelper
   
   def caret_menu
     content_tag(:div, class: "btn-group pull-right") do
+      return unless content = yield
+      
       html = content_tag(:div, data: { toggle: :dropdown },
                          class: "btn btn-default dropdown-toggle") do
         content_tag(:span, "", class: "caret")
