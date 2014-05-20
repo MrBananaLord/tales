@@ -1,17 +1,24 @@
-.page-header
-  = image_tag @user.avatar.default.url
-  %h1= title @user.nickname
-  = action_link_to :edit, edit_user_registration_path, if: can?(:edit, @user)
-  
-= action_link_to t(".new_game"), new_game_path, if: can?(:manage, @user)
-
-- if @user_games.any?
-  %h2= t(".created_games")
-  - @user_games.each do |game|
-    .col-sm-6
-      .thumbnail
-        %h3= link_to_if can?(:show, game), game.name, game
-        %p= game.description
+.col-sm-3
+  .panel.panel-default
+    .panel-heading.text-center
+      = image_tag @user.avatar.default.url, class: "img-thumbnail"
+      %h1= title @user.nickname
+    .panel-body
+      = action_link_to :edit, edit_user_registration_path, if: can?(:edit, @user)
+      = action_link_to t(".new_game"), new_game_path, if: can?(:create, @user.games.build)
+      
+.col-sm-9
+  - if @user_games.any?
+    .panel.panel-default
+      .panel-heading
+        %h2= t(".created_games")
+      .panel-body
+        - @user_games.each do |game|
+          .col-sm-6
+            .panel.panel-default
+              .panel-body
+                %h3= link_to_if can?(:show, game), game.name_with_stars, game
+                %p= game.description
 
 //- @user.favourite_games.each do |game|
 //  .col-sm-6
