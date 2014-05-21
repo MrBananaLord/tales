@@ -5,7 +5,7 @@ class GamesController < ApplicationController
                                    :destroy, :publish]
                                                  
   before_filter :load_mark, except: [:destroy, :new, :create]
-  layout "game", except: [:destroy, :new, :create]
+  layout "game", except: [:destroy, :new, :create, :show]
   
   def new
     @game = current_user.games.build
