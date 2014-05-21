@@ -12,6 +12,7 @@ pl:
       new_paragraph: "Dodaj paragraf"
       play: "Graj"
       publish: "Opublikuj grę"
+      save_game: "Zapisz grę"
     decorator:
       draft: "Wersja robocza"
     edit:

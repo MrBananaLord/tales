@@ -8,6 +8,7 @@ pl:
     new: "dodaj"
     paragraphs: "paragrafy"
     password: "haslo"
+    save: "zapisz"
     set_as_first: "ustaw_jako_pierwszy"
     sign_in: "zaloguj"
     sign_out: "wyloguj"

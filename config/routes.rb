@@ -13,6 +13,8 @@ Tales::Application.routes.draw do
       resources :marks, only: [:create, :update]
       get "publish", to: "games#publish", on: :member
       resources :paragraphs do
+        get "save", to: "saves#create", on: :member
+        post "save", to: "saves#create", on: :member
         get "set_as_first", to: "paragraphs#set_as_first", on: :member
         resources :choices, except: [:index, :show]
       end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140519113029) do
+ActiveRecord::Schema.define(version: 20140521092727) do
 
   create_table "choices", force: true do |t|
     t.text     "content"
@@ -56,6 +56,18 @@ ActiveRecord::Schema.define(version: 20140519113029) do
   end
 
   add_index "paragraphs", ["game_id"], name: "index_paragraphs_on_game_id"
+
+  create_table "saves", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "paragraph_id"
+    t.integer  "game_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "saves", ["game_id"], name: "index_saves_on_game_id"
+  add_index "saves", ["paragraph_id"], name: "index_saves_on_paragraph_id"
+  add_index "saves", ["user_id"], name: "index_saves_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

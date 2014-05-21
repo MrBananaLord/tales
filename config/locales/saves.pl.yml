@@ -1,0 +1,9 @@
+pl:
+  saves:
+    confirmation:
+      are_you_sure: "Zapis tej gry już istnieje. Czy chcesz go nadpisać?"
+      "no": "Nie"
+      "yes": "Tak"
+    controller: 
+      game_saved: "Gra została zapisana."
+      saving_game_failed: "Nie udało się zapisać gry"

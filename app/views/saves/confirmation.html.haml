@@ -1,0 +1,6 @@
+.panel.panel-warning
+  .panel-heading
+    = t(".are_you_sure")
+  .panel-body
+    = action_link_to t(".yes"), save_game_paragraph_path(confirm: 1), method: :post
+    = action_link_to t(".no"), [@game, @paragraph]
