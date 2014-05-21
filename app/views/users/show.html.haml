@@ -11,7 +11,7 @@
             if: can?(:edit, @user)
           = action_link_to t(".new_game"), new_game_path,
             if: can?(:create, @user.games.build)
-      
+
 .col-md-9.col-sm-12
   .panel.panel-default
     .panel-heading
