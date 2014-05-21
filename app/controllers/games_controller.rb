@@ -1,8 +1,8 @@
-class GamesController < ApplicationController
-  include GameBase
-  
+class GamesController < ApplicationController  
   before_filter :load_game, only: [:edit, :update, :show,
                                    :destroy, :publish]
+                                   
+  include GameBase
                                                  
   before_filter :load_mark, except: [:destroy, :new, :create]
   layout "game", except: [:destroy, :new, :create, :show]

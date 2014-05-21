@@ -9,6 +9,7 @@ pl:
       all_paragraphs: "Wszystkie paragrafy"
       destroy_game: "Usuń grę"
       edit_game: "Edytuj grę"
+      load_game: "Wczytaj zapis"
       new_paragraph: "Dodaj paragraf"
       play: "Graj"
       publish: "Opublikuj grę"
@@ -23,7 +24,3 @@ pl:
       your_mark: "Twoja ocena"
     new:
       heading: "Nowa gra"
-    show:
-      play: "Graj"
-      all_paragraphs: "Wszystkie paragrafy"
-      new_paragraph: "Dodaj paragraf"
