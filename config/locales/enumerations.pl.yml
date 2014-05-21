@@ -2,8 +2,8 @@ pl:
   enumerations:
     mark:
       value:
-        "1": "1 gwiazdka - bardzo słaba"
-        "2": "2 gwiazdki - słaba"
-        "3": "3 gwiazdki - średnia"
-        "4": "4 gwiazdki - dobra"
-        "5": "5 gwiazdek - bardzo dobra"
+        "1": "Bardzo słaba"
+        "2": "Słaba"
+        "3": "Średnia"
+        "4": "Dobra"
+        "5": "Bardzo dobra"

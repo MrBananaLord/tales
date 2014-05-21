@@ -1,5 +1,28 @@
-- content_for :main_container do
-  .container
-    = render "games/aside_panel", center: true
-
-= render template: "layouts/application"
+.col-md-4.col-sm-6.col-md-offset-4.col-sm-offset-3
+  .panel.panel-default
+    .panel-heading
+      - if can? :edit, @game
+        .btn-group.pull-right
+          .btn.btn-default.dropdown-toggle{ "data-toggle" => :dropdown }
+            %span.caret
+          %ul.dropdown-menu
+            %li= link_to t(".publish"), [:publish, @game],
+                data: { confirm: t("questions.confirm") } if can?(:publish, @game)
+            %li= link_to t(".edit_game"), [:edit, @game] if can?(:edit, @game)
+            %li= link_to t(".destroy_game"), @game, method: :delete,
+              data: { confirm: t("questions.confirm") } if can?(:destroy, @game)
+      = render "users/mini_profile", user: @game.owner
+      .clearfix
+      = game_header
+      %p= @game.description
+      
+    .panel-body
+      .btn-group-vertical
+        = action_link_to t(".new_paragraph"), [:new, @game, :paragraph], if: can?(:edit, @game)
+        = action_link_to t(".all_paragraphs"), [@game, :paragraphs], if: can?(:edit, @game)
+      = render "games/mark_form"
+      
+    .panel-footer
+      = action_link_to t(".play"), [@game, @game.first_paragraph],
+        if: can?(:play, @game), class: %w(btn btn-primary)
+        
