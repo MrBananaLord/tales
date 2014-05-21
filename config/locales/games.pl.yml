@@ -12,6 +12,8 @@ pl:
       new_paragraph: "Dodaj paragraf"
       play: "Graj"
       publish: "Opublikuj grę"
+    decorator:
+      draft: "Wersja robocza"
     edit:
       heading: "Edytowanie gry"
     mark_form:
@@ -22,3 +24,5 @@ pl:
       heading: "Nowa gra"
     show:
       play: "Graj"
+      all_paragraphs: "Wszystkie paragrafy"
+      new_paragraph: "Dodaj paragraf"

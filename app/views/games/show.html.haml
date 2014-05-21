@@ -17,9 +17,11 @@
       %p= @game.description
       
     .panel-body
-      .btn-group-vertical
+      .btn-group-vertical.btn-group-responsive
         = action_link_to t(".new_paragraph"), [:new, @game, :paragraph], if: can?(:edit, @game)
         = action_link_to t(".all_paragraphs"), [@game, :paragraphs], if: can?(:edit, @game)
+      .clearfix
+      %br
       = render "games/mark_form"
       
     .panel-footer
