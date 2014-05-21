@@ -9,7 +9,7 @@ pl:
       all_paragraphs: "Wszystkie paragrafy"
       destroy_game: "Usuń grę"
       edit_game: "Edytuj grę"
-      load_game: "Wczytaj zapis"
+      load_game: "Wczytaj grę"
       new_paragraph: "Dodaj paragraf"
       play: "Graj"
       publish: "Opublikuj grę"
