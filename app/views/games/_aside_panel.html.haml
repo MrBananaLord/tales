@@ -1,5 +1,5 @@
 - centered ||= false
-.col-md-4.col-sm-6{ class: centered && "col-md-offset-4 col-sm-offset-3" }
+.col-md-4.col-sm-6{ class: centered ? "col-md-offset-4 col-sm-offset-3" : "hidden-xs" }
   .panel.panel-default
     .panel-heading
       - if can? :edit, @game
@@ -33,3 +33,30 @@
     .panel-footer
       = render "games/mark_form"
         
+- if !centered
+  = content_for :footer do
+    %nav.navbar.visible-xs.navbar-default
+      .container
+        .navbar-nav
+          .btn-group-justified.btn-group
+            = action_link_to t(".new_paragraph"), [:new, @game, :paragraph], if: can?(:edit, @game)
+            = action_link_to t(".all_paragraphs"), [@game, :paragraphs], if: can?(:edit, @game)
+        .navbar-nav
+          .btn-group-justified.btn-group
+            - if @paragraph && @paragraph.persisted?
+              = link_to t(".save_game"), [:save, @game, @paragraph],
+                class: %w(btn btn-primary)
+            - else
+              = action_link_to t(".play"), [@game, @game.first_paragraph],
+                if: can?(:play, @game), class: %w(btn btn-primary)
+            - if @save
+              = action_link_to t(".load_game"), [@game, @save.paragraph],
+                class: %w(btn btn-primary)          
+        .navbar-nav
+          .btn-group-justified.btn-group
+            = action_link_to t(".publish"), [:publish, @game],
+              data: { confirm: t("questions.confirm") } if can?(:publish, @game)
+            = action_link_to t(".edit_game"), [:edit, @game] if can?(:edit, @game)
+            = action_link_to t(".destroy_game"), @game, method: :delete,
+              data: { confirm: t("questions.confirm") } if can?(:destroy, @game)
+      

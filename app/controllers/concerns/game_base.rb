@@ -17,7 +17,7 @@ module GameBase
   end
   
   def load_game
-    @game = Game.find(params[:game_id])
+    @game = GameDecorator.decorate Game.find(params[:game_id])
   end
   
   def load_save

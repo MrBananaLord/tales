@@ -1,19 +1,31 @@
-%nav.navbar.navbar-default.navbar-static-top{ role: "navigation" }
+%nav.navbar.navbar-default.navbar-static-top.header-navbar{ role: "navigation" }
   .container
     .navbar-header
       %button.navbar-toggle{ type: "button", data: { toggle: "collapse",
                              target: "#main-nav" } }
         = hamburger_toggler
       = link_to "Tales", root_url, class: "navbar-brand"
+      
+      .navbar-text.visible-xs
+        - if @game
+          .game-name
+            = link_to @game do
+              %strong= @game.name_with_stars
+        - if current_user
+          = link_to current_user, class: "avatar pull-right" do
+            = image_tag current_user.avatar.thumb.url, class: "img-circle img-xs"
+              
     
-    #main-nav.collapse.navbar-collapse
+    #main-nav.collapse.navbar-collapse.pull-right
       %ul.nav.navbar-nav.navbar-right
         - if current_user
-          %li
-            = render "users/mini_profile", user: current_user
           %li= link_to t(".sign_out"), destroy_user_session_path, method: :delete
         - else
           %li= link_to t(".sign_up"), new_user_registration_path
           %li= link_to t(".sign_in"), new_user_session_path
           %li= link_to t(".sign_up_with_facebook"), user_omniauth_authorize_path(:facebook)
+          
+    %ul.nav.navbar-nav.navbar-right.hidden-xs
+      - if current_user
+        %li= render "users/mini_profile", user: current_user
 

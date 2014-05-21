@@ -50,7 +50,7 @@ class GamesController < ApplicationController
   private
   
   def load_game
-    @game = Game.find(params[:id])
+    @game = GameDecorator.decorate Game.find(params[:id])
     authorize @game
   end
 
