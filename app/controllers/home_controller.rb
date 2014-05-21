@@ -4,5 +4,7 @@ class HomeController < ApplicationController
       Game.published.ordered_by_average_mark.limit(4))
       
     @latest_games = GameDecorator.decorate_collection(Game.published.latest.limit(4))
+    
+    @most_popular_authors = User.ordered_by_average_mark.limit(4)
   end
 end

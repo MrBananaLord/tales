@@ -1,4 +1,5 @@
-.col-sm-6
+- column_size ||= 6
+%div{ class: "col-sm-#{column_size}" }
   .panel.panel-default
     .panel-heading
       = render "users/mini_profile", user: game.owner

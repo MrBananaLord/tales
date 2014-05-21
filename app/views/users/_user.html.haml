@@ -1,0 +1,11 @@
+.col-sm-6
+  .user.profile.profile-default
+    .panel.panel-default
+      .panel-body
+        = link_to user do
+          .pull-left
+            = image_tag user.avatar.thumb.url, class: "img-circle avatar"
+          .pull-left
+            .nickname= user.nickname
+            = stars(user.average_mark)
+        .clearfix
