@@ -18,6 +18,8 @@ pl:
       draft: "Wersja robocza"
     edit:
       heading: "Edytowanie gry"
+    index:
+      heading: "Gry"
     mark_form:
       change_mark: "Zmień ocenę"
       mark: "Oceń"

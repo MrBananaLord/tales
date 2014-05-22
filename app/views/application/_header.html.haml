@@ -28,4 +28,8 @@
     %ul.nav.navbar-nav.navbar-right.hidden-xs
       - if current_user
         %li= render "users/mini_profile", user: current_user
-
+        
+    = form_tag games_path, method: :get, class: "navbar-form navbar-left",
+      role: :search do
+      = text_field_tag :q, "", class: "form-control", placeholder: t(".search_query")
+      = submit_tag t(".submit_search"), name: nil, class: "btn btn-default"

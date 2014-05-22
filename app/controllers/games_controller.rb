@@ -1,11 +1,10 @@
 class GamesController < ApplicationController  
+  include GameBase
   before_filter :load_game, only: [:edit, :update, :show,
                                    :destroy, :publish]
-                                   
-  include GameBase
                                                  
   before_filter :load_mark, except: [:destroy, :new, :create]
-  layout "game", except: [:destroy, :new, :create, :show]
+  layout "game", except: [:destroy, :new, :create, :show, :index]
   
   def new
     @game = current_user.games.build
@@ -21,6 +20,13 @@ class GamesController < ApplicationController
     else
       render action: "new"
     end
+  end
+
+  def index
+    @games = Game.published
+    @games = @games.where("name LIKE ?", "%#{params[:q]}%") if params[:q].present?
+    @games = GameDecorator.decorate_collection(
+      GamePolicy::Scope.new(current_user, @games).resolve)
   end
   
   def show

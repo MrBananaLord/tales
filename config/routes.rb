@@ -9,7 +9,7 @@ Tales::Application.routes.draw do
     }
     resources :users, only: :show
     
-    resources :games, except: :index do
+    resources :games do
       resource :mark, only: [:create, :update]
       get "mark", to: "marks#create"
       get "publish", to: "games#publish", on: :member
