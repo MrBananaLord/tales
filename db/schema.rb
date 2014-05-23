@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521092727) do
+ActiveRecord::Schema.define(version: 20140523142102) do
 
   create_table "choices", force: true do |t|
     t.text     "content"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 20140521092727) do
     t.string   "provider_id"
     t.string   "username"
     t.string   "avatar"
+    t.string   "role"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

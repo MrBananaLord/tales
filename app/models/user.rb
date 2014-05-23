@@ -4,12 +4,15 @@ class User < ActiveRecord::Base
          :omniauthable, omniauth_providers: [:facebook]
          
   mount_uploader :avatar, AvatarUploader
+  mount_enumeration :role, Enumerations::User::Role,
+                    default: "standard_user", set_default_on_initialize: true
          
   has_many :games, dependent: :destroy, foreign_key: "owner_id"
   has_many :marks, dependent: :destroy
   has_many :saves, dependent: :destroy, class_name: "Save"
   
   validates :username, uniqueness: { case_sensitive: false }
+  delegate :admin?, to: :role
   
   attr_accessor :login
   
@@ -24,7 +27,7 @@ class User < ActiveRecord::Base
       where(conditions).first
     end
   end
-    
+  
   def nickname
     username || email.split("@").first
   end

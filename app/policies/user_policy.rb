@@ -6,6 +6,10 @@ class UserPolicy < ApplicationPolicy
     !user.present?
   end
   
+  def index?
+    user.admin?
+  end
+  
   def show?
     true
   end

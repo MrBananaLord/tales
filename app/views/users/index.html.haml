@@ -1,0 +1,21 @@
+.panel.panel-default
+  .panel-heading
+    %h1= t(".heading")
+  .panel-body
+    %table.table.table-hover
+      %thead
+        %tr
+          %th ID
+          %th= t(".profile")
+          %th= t(".role")
+          %th
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td= user.id
+            %td= render "users/mini_profile", user: user
+            %td= user.role
+            %td
+              = caret_menu do
+                %li= link_to t(".remove_user"), user, method: :delete,
+                  data: { confirm: t("questions.confirm") }

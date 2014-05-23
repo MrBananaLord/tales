@@ -7,7 +7,7 @@ Tales::Application.routes.draw do
       registrations: "users/registrations", 
       sessions: "users/sessions"
     }
-    resources :users, only: :show
+    resources :users, only: [:show, :index]
     resources :saves, only: [:index, :destroy]
     
     resources :games do

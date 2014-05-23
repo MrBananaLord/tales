@@ -18,12 +18,17 @@ pl:
         <<: *user_attributes
   
   users:
+    aside_profile:
+      edit_profile: "Edytuj profil"
+      new_game: "Stwórz grę"
+    index:
+      heading: "Użytkownicy"
+      profile: "Profil"
+      remove_user: "Usuń użytkownika"
+      role: "Uprawnienia"
     show:
       created_games: "Gry użytkownika"
       favorite_games: "Najwyżej ocenione"
       no_user_games: "Uzytkownik nie stworzył jeszcze żadnej gry."
       no_user_favorite_games: "Użytkownik nie ocenił jeszcze żadnej gry."
-    aside_profile:
-      edit_profile: "Edytuj profil"
-      new_game: "Stwórz grę"
       

@@ -7,3 +7,7 @@ pl:
         "3": "Średnia"
         "4": "Dobra"
         "5": "Bardzo dobra"
+    user:
+      role:
+        admin: "Administrator"
+        standard_user: "Użytkownik"

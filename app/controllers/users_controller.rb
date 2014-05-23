@@ -8,4 +8,9 @@ class UsersController < ApplicationController
     @user_favorite_games = GameDecorator.decorate_collection(
       GamePolicy::Scope.new(current_user, @user.favorite_games.limit(4)).resolve)
   end
+  
+  def index
+    authorize User, :index?
+    @users = User.order(:id)
+  end
 end
