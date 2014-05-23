@@ -1,7 +1,13 @@
 class SavesController < ApplicationController
   include GameBase
-  before_filter :load_paragraph
+  before_filter :authenticate_user!, only: [:index, :destroy]
+  before_filter :load_game, only: :create
+  before_filter :load_mark, only: :create
+  before_filter :load_save, only: :create
+  before_filter :load_paragraph, only: :create
   before_filter :store_location
+  
+  layout "game", except: :index
   
   def create
     authorize @game, :save?
@@ -20,10 +26,21 @@ class SavesController < ApplicationController
     end
   end
   
+  def index
+    @saves = current_user.saves
+  end
+  
+  def destroy
+    @save = current_user.saves.find(params[:id])
+    authorize @save
+    @save.destroy
+    redirect_to saves_index_path, notice: I18n.t(".statements.destroyed")
+  end
+  
   private
   
   def find_or_initialize_save
-    Save.find_or_initialize_by(user: current_user, game: @game)
+    Save.find_or_initialize_by(user_id: current_user.id, game_id: @game.id)
   end
   
   def load_paragraph

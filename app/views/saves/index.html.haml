@@ -1,0 +1,25 @@
+= render "users/aside_profile", user: current_user
+
+.col-md-9.col-sm-12
+  .panel.panel-default
+    .panel-heading
+      %h1= t(".heading")
+    .panel-body
+      - if @saves.any?
+        %table.table.table-hover
+          %thead
+            %tr
+              %th= t(".game_name")
+              %th
+          %tbody
+            - @saves.each do |save|
+              %tr
+                %td= save.game.name
+                %td
+                  = link_to t(".load_game"), [save.game, save.paragraph],
+                    class: %w(btn btn-primary)
+                  = action_link_to t(".remove_save"), save, method: :delete,
+                    data: { confirm: t("questions.confirm") }, if: can?(:destroy, save)
+      - else
+        = t(".no_saves")
+                  

@@ -8,6 +8,7 @@ Tales::Application.routes.draw do
       sessions: "users/sessions"
     }
     resources :users, only: :show
+    resources :saves, only: [:index, :destroy]
     
     resources :games do
       resource :mark, only: [:create, :update]

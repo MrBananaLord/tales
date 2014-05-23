@@ -9,6 +9,7 @@ pl:
     paragraphs: "paragrafy"
     password: "haslo"
     save: "zapisz"
+    saves: "zapisy"
     set_as_first: "ustaw_jako_pierwszy"
     sign_in: "zaloguj"
     sign_out: "wyloguj"

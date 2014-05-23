@@ -1,16 +1,4 @@
-.col-md-3.col-sm-12
-  .panel.panel-default.text-center
-    .panel-body
-      .col-sm-6.col-md-12
-        = image_tag @user.avatar.default.url, class: "img-thumbnail"
-        .stars= stars(@user.average_mark)
-        %h1= title @user.nickname
-      .col-sm-6.col-md-12
-        .btn-group-vertical.btn-group-responsive
-          = action_link_to t(".edit_profile"), edit_user_registration_path,
-            if: can?(:edit, @user)
-          = action_link_to t(".new_game"), new_game_path,
-            if: can?(:create, @user.games.build)
+= render "users/aside_profile", user: @user
 
 .col-md-9.col-sm-12
   .panel.panel-default

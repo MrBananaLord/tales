@@ -7,3 +7,10 @@ pl:
     controller: 
       game_saved: "Gra została zapisana."
       saving_game_failed: "Nie udało się zapisać gry"
+    index:
+      game_name: "Nazwa gry"
+      heading: "Zapisane gry"
+      load_game: "Wczytaj grę"
+      remove_save: "Usuń zapis"
+      no_saves: "Brak zapisanych gier"
+      
