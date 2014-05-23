@@ -9,6 +9,6 @@ class ChoicePolicy < ApplicationPolicy
   end
   
   def read?
-    user == record.game.owner || record.game.published?
+    record.game.published? || user == record.game.owner
   end
 end

@@ -33,10 +33,10 @@ class GamePolicy < ApplicationPolicy
   private
   
   def manage?
-    user.present? && user == record.owner
+    user.present? && (user.admin? || user == record.owner)
   end
   
   def read?
-    manage? || record.published?
+    record.published? || manage?
   end
 end
