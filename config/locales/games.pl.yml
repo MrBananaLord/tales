@@ -19,6 +19,8 @@ pl:
     edit:
       heading: "Edytowanie gry"
     index:
+      games_by_mark: "Według ocen"
+      games_latest: "Według daty publikacji"
       heading: "Gry"
       search_query: "Wyszukaj..."
       submit_search: "Szukaj"

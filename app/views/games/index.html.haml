@@ -1,20 +1,28 @@
+  
 .panel.panel-default
   .panel-heading
-    = form_tag games_path, method: :get,
-      class: %w(navbar-form navbar-right), role: :search do
-      .form-group
-        = text_field_tag :q, @search_params[:q], class: "form-control",
-          placeholder: t(".search_query")
-        = hidden_field_tag :order, @search_params[:order]
-      = submit_tag t(".submit_search"), name: nil, class: "btn btn-default"
-      
-    .btn-group  
-      = action_link_to t(".games_by_mark"),
-        games_path(@search_params.merge(order: "by_mark"))
-      = action_link_to t(".games_latest"),
-        games_path(@search_params.merge(order: "latest"))
-    
     %h1= t(".heading")
+    %nav.navbar.navbar-default{ role: :navigation }
+      .container-fluid
+        %button.navbar-toggle{ type: "button", data: { toggle: "collapse",
+                               target: "#game-index-nav" } }
+          = hamburger_toggler
+        #game-index-nav.collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li{ class: @search_params[:order] == "by_mark" && "active" }
+              = link_to t(".games_by_mark"),
+                games_path(@search_params.merge(order: "by_mark"))
+            %li{ class: @search_params[:order] == "latest" && "active" }
+              = link_to t(".games_latest"),
+                games_path(@search_params.merge(order: "latest"))              
+                
+          = form_tag games_path, method: :get,
+            class: %w(navbar-form navbar-right), role: :search do
+            .form-group
+              = text_field_tag :q, @search_params[:q], class: "form-control",
+                placeholder: t(".search_query")
+              = hidden_field_tag :order, @search_params[:order]
+            = submit_tag t(".submit_search"), name: nil, class: "btn btn-default"
     
   .panel-body
     = render @games
