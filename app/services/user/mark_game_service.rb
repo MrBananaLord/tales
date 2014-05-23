@@ -17,6 +17,6 @@ class User::MarkGameService
   end
   
   def mark
-    @mark ||= Mark.find_or_initialize_by(user: @user, game: @game)
+    @mark ||= Mark.find_or_initialize_by(user_id: @user.id, game_id: @game.id)
   end
 end

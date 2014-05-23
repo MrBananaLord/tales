@@ -7,7 +7,7 @@
       = link_to "Tales", root_url, class: "navbar-brand"
       
     .navbar-text
-      - if @game
+      - if @game && @game.persisted?
         .game-name.visible-xs
           = link_to @game do
             %strong= @game.name_with_stars

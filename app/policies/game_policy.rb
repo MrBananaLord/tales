@@ -14,7 +14,8 @@ class GamePolicy < ApplicationPolicy
   end
   
   def play?
-    record.published? || (manage? && record.first_paragraph.present?)
+    record.first_paragraph.present? &&
+    (record.published? || manage?)
   end
   
   def publish?
@@ -26,7 +27,7 @@ class GamePolicy < ApplicationPolicy
   end
   
   def save?
-    user.present?
+    user.present? && record.published?
   end
   
   private
