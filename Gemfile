@@ -45,6 +45,9 @@ gem "route_translator"
 # I18n
 gem "polish"
 
+# Pagination
+gem "kaminari"
+
 # Debugging
 group :development do
   gem "letter_opener"

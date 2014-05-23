@@ -28,3 +28,8 @@ pl:
     login_required: "Logowanie wymagane"
     published: "Opublikowano"
     updated: "Zapisano zmiany"
+  views:
+    pagination:
+      previous: "&laquo;"
+      next: "&raquo;"
+      truncate: "..."

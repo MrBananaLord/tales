@@ -23,6 +23,9 @@
                 placeholder: t(".search_query")
               = hidden_field_tag :order, @search_params[:order]
             = submit_tag t(".submit_search"), name: nil, class: "btn btn-default"
+    = paginate @games, outer_window: 2, window: 2
     
   .panel-body
     = render @games
+  .panel-footer
+    = paginate @games, outer_window: 2, window: 2

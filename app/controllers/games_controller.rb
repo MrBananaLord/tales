@@ -72,6 +72,7 @@ class GamesController < ApplicationController
   def index_games_collection
     games = Game.published
     games = games.where("name LIKE ?", "%#{params[:q]}%") if @search_params[:q]
-    games.send(@search_params[:order])
+    games = games.send(@search_params[:order])
+    games.page(params[:page]).per(10)
   end
 end
