@@ -1,4 +1,4 @@
-.user.profile.profile-mini
+.user.profile.profile-mini{ class: (user.average_mark > 0) && "with-stars"}
   = link_to user do
     .pull-left
       = image_tag user.avatar.thumb.url, class: "img-circle img-xs avatar"
