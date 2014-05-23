@@ -9,7 +9,7 @@
 .col-md-12
   .panel.panel-default
     .panel-heading
-      %h2= t(".most_popular_games")
+      %h2= link_to t(".most_popular_games"), games_path
     .panel-body
       = render @most_popular_games, column_size: 4
 .col-md-6
@@ -21,6 +21,6 @@
 .col-md-6
   .panel.panel-default
     .panel-heading
-      %h2= t(".latest_games")
+      %h2= link_to t(".latest_games"), games_path(latest: true)
     .panel-body
       = render @latest_games

@@ -23,10 +23,9 @@ class GamesController < ApplicationController
   end
 
   def index
-    @games = Game.published
-    @games = @games.where("name LIKE ?", "%#{params[:q]}%") if params[:q].present?
+    load_search_params
     @games = GameDecorator.decorate_collection(
-      GamePolicy::Scope.new(current_user, @games).resolve)
+      GamePolicy::Scope.new(current_user, index_games_collection).resolve)
   end
   
   def show
@@ -64,5 +63,15 @@ class GamesController < ApplicationController
     params.require(:game).permit(:name, :description)
   end
   
+  def load_search_params
+    @search_params = {}
+    @search_params[:q] = params[:q] if params[:q]
+    @search_params[:order] = params[:order] == "latest" ? "latest" : "by_mark"
+  end
   
+  def index_games_collection
+    games = Game.published
+    games = games.where("name LIKE ?", "%#{params[:q]}%") if @search_params[:q]
+    games.send(@search_params[:order])
+  end
 end

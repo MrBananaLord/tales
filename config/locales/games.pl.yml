@@ -20,6 +20,8 @@ pl:
       heading: "Edytowanie gry"
     index:
       heading: "Gry"
+      search_query: "Wyszukaj..."
+      submit_search: "Szukaj"
     mark_form:
       change_mark: "Zmień ocenę"
       mark: "Oceń"

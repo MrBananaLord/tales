@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   
   attr_accessor :login
   
-  scope :ordered_by_average_mark, -> { joins(:marks).group("users.id").
+  scope :by_mark, -> { joins(:marks).group("users.id").
     order("(sum(marks.value) / count(marks.id)) DESC, count(marks.id) DESC") }
   
   def self.find_first_by_auth_conditions(warden_conditions)
@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   end
   
   def favorite_games
-    games.ordered_by_average_mark
+    games.by_mark
   end
 
   def average_mark
