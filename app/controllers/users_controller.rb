@@ -9,6 +9,11 @@ class UsersController < ApplicationController
       GamePolicy::Scope.new(current_user, @user.favorite_games.limit(4)).resolve)
   end
   
+  def update
+    @user = User.find(params[:id])
+    authorize @user, :update?
+  end
+  
   def index
     authorize User, :index?
     @users = User.order(:id)

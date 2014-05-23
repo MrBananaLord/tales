@@ -7,7 +7,9 @@ Tales::Application.routes.draw do
       registrations: "users/registrations", 
       sessions: "users/sessions"
     }
-    resources :users, only: [:show, :index]
+    resources :users, only: [:show, :index] do
+      resource :admin, only: [:create, :destroy], on: :member, controller: "users/admins"
+    end
     resources :saves, only: [:index, :destroy]
     
     resources :games do

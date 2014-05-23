@@ -7,11 +7,15 @@ class UserPolicy < ApplicationPolicy
   end
   
   def index?
-    user.admin?
+    user.present? && user.admin?
   end
   
   def show?
     true
+  end
+  
+  def manage_roles?
+    user.present? && user.admin?  
   end
   
   private
@@ -21,6 +25,6 @@ class UserPolicy < ApplicationPolicy
   end
   
   def manage?
-    user == record
+    user.present? && user == record
   end
 end

@@ -19,3 +19,10 @@
               = caret_menu do
                 %li= link_to t(".remove_user"), user, method: :delete,
                   data: { confirm: t("questions.confirm") }
+                - if user.admin?
+                  %li= link_to t(".remove_admin"), user_admin_path(user),
+                      method: :delete, data: { confirm: t("questions.confirm") }
+                - else
+                  %li= link_to t(".add_admin"), user_admin_path(user), method: :post,
+                      data: { confirm: t("questions.confirm") }
+

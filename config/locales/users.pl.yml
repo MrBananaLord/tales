@@ -22,8 +22,10 @@ pl:
       edit_profile: "Edytuj profil"
       new_game: "Stwórz grę"
     index:
+      add_admin: "Mianuj administratorem"
       heading: "Użytkownicy"
       profile: "Profil"
+      remove_admin: "Odbierz prawa administratorskie"
       remove_user: "Usuń użytkownika"
       role: "Uprawnienia"
     show:
