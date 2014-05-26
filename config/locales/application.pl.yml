@@ -8,6 +8,7 @@ pl:
     show: "Pokaż"
   application:
     header:
+      manage_users: "Zarządzaj użytkownikami"
       search_query: "Wyszukaj..."
       sign_in: "Zaloguj się"
       sign_out: "Wyloguj się"
