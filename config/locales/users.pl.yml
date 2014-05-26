@@ -20,7 +20,7 @@ pl:
   users:
     aside_profile:
       edit_profile: "Edytuj profil"
-      games: "Gry użytkownika"
+      games: "Twoje gry"
       new_game: "Stwórz grę"
       saves: "Zapisane gry"
     games:
