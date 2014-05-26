@@ -11,6 +11,7 @@
             data: { confirm: t("questions.confirm") } if can?(:destroy, @game)
       = render "users/mini_profile", user: @game.owner
       .clearfix
+      - title @game.name
       = game_header
       %p= @game.description
       

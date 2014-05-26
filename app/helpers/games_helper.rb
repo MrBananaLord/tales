@@ -1,7 +1,7 @@
 module GamesHelper
   def game_header
     content_tag(:h1) do
-      link_to(title(@game.name), @game) + stars(@game.average_mark)
+      link_to(@game.name_with_stars)
     end
   end
 end
