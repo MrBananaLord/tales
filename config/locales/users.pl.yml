@@ -21,6 +21,7 @@ pl:
     aside_profile:
       edit_profile: "Edytuj profil"
       new_game: "Stwórz grę"
+      saves: "Zapisane gry"
     index:
       add_admin: "Mianuj administratorem"
       heading: "Użytkownicy"

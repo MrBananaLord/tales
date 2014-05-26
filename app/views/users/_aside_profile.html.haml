@@ -11,3 +11,6 @@
             if: can?(:edit, user)
           = action_link_to t(".new_game"), new_game_path,
             if: can?(:create, user.games.build)
+        .btn-group-responsive.btn-group-vertical
+          = action_link_to t(".saves"), saves_index_path,
+            if: current_user
