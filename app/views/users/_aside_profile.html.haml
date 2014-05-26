@@ -2,15 +2,19 @@
   .panel.panel-default.text-center
     .panel-body
       .col-sm-6.col-md-12
-        = image_tag user.avatar.default.url, class: "img-thumbnail"
-        .stars= stars(user.average_mark)
-        %h1= title user.nickname
+        = link_to user do
+          = image_tag user.avatar.default.url, class: "img-thumbnail"
+          .stars= stars(user.average_mark)
+          %h1= title user.nickname
       .col-sm-6.col-md-12
         .btn-group-vertical.btn-group-responsive
           = action_link_to t(".edit_profile"), edit_user_registration_path,
             if: can?(:edit, user)
-          = action_link_to t(".new_game"), new_game_path,
-            if: can?(:create, user.games.build)
         .btn-group-responsive.btn-group-vertical
           = action_link_to t(".saves"), saves_index_path,
             if: current_user
+          = action_link_to t(".games"), user_games_path(@user)
+        .btn-group-vertical.btn-group-responsive
+          = action_link_to t(".new_game"), new_game_path,
+            if: can?(:create, user.games.build)
+
