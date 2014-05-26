@@ -38,13 +38,13 @@ pl:
         create_account: "Załóż konto"
         heading: "Rejestracja"
         or: "lub"
-        sign_up_with_facebook: "zarejestruj się za pomocą Facebooka"
+        sign_up_with_facebook: "połącz Facebookiem"
     sessions:
       new:
         <<: *defaults
         heading: "Logowanie"
         or: "lub"
-        sign_up_with_facebook: "zaloguj się za pomocą Facebooka"
+        sign_up_with_facebook: "połącz Facebookiem"
     shared:
       links:
         <<: *defaults
