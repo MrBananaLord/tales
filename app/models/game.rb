@@ -21,10 +21,8 @@ class Game < ActiveRecord::Base
   end
   
   def average_mark
-    if marks.any?
-      marks.map(&:value).inject(0){ |sum, value| sum + value.value } / marks.count
-    else
-      0
-    end
+    marks.map(&:value).inject(0) do |sum, value|
+      sum + value.value
+    end / ((count = marks.count) == 0 ? 1 : count )
   end
 end

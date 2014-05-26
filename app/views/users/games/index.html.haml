@@ -10,4 +10,5 @@
       - else
         = t(".no_user_games")
     - if @games.any?
-      = paginate @games
+      .panel-footer
+        = paginate @games

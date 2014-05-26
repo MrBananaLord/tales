@@ -22,6 +22,9 @@ pl:
       edit_profile: "Edytuj profil"
       new_game: "Stwórz grę"
       saves: "Zapisane gry"
+    games:
+      index:
+        games: "Gry użytkownika"
     index:
       add_admin: "Mianuj administratorem"
       heading: "Użytkownicy"
