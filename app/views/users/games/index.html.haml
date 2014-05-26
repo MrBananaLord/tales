@@ -1,0 +1,13 @@
+= render "users/aside_profile", user: @user
+
+.col-md-9.col-sm-12
+  .panel.panel-default
+    .panel-heading
+      %h2= t(".games")
+    .panel-body
+      - if @games.any?
+        = render partial: "games/game", collection: @games
+      - else
+        = t(".no_user_games")
+    - if @games.any?
+      = paginate @games

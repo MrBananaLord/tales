@@ -9,6 +9,7 @@ Tales::Application.routes.draw do
     }
     resources :users, only: [:show, :index] do
       resource :admin, only: [:create, :destroy], on: :member, controller: "users/admins"
+      resources :games, only: :index, controller: "users/games"
     end
     resources :saves, only: [:index, :destroy]
     

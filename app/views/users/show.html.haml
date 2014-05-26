@@ -3,7 +3,7 @@
 .col-md-9.col-sm-12
   .panel.panel-default
     .panel-heading
-      %h2= t(".created_games")
+      %h2= link_to t(".created_games"), user_games_path(@user)
     .panel-body
       - if @user_games.any?
         = render @user_games

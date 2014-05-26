@@ -24,8 +24,7 @@ class GamesController < ApplicationController
 
   def index
     load_search_params
-    @games = GameDecorator.decorate_collection(
-      GamePolicy::Scope.new(current_user, index_games_collection).resolve)
+    @games = GameDecorator.decorate_collection(index_games_collection)
   end
   
   def show
