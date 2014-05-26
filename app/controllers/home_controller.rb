@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     @most_popular_games = GameDecorator.decorate_collection(
-      Game.published.by_mark.limit(4))
+      Game.published.by_mark.limit(3))
       
     @latest_games = GameDecorator.decorate_collection(Game.published.latest.limit(4))
     
