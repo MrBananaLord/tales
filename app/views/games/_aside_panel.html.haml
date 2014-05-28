@@ -23,7 +23,7 @@
       .btn-group.btn-group-justified
         - if @paragraph && @paragraph.persisted?
           = link_to t(".save_game"), [:save, @game, @paragraph],
-            class: %w(btn btn-primary) if can?(:save, @game)
+            class: %w(btn btn-primary)
         - else
           = action_link_to t(".play"), [@game, @game.first_paragraph],
             if: can?(:play, @game), class: %w(btn btn-primary)
@@ -40,8 +40,10 @@
       .container
         .navbar-nav
           .btn-group-justified.btn-group
-            = action_link_to t(".new_paragraph"), [:new, @game, :paragraph], if: can?(:edit, @game)
-            = action_link_to t(".all_paragraphs"), [@game, :paragraphs], if: can?(:edit, @game)
+            = action_link_to t(".new_paragraph"), [:new, @game, :paragraph],
+              if: can?(:edit, @game)
+            = action_link_to t(".all_paragraphs"), [@game, :paragraphs],
+              if: can?(:edit, @game)
         .navbar-nav
           .btn-group-justified.btn-group
             - if @paragraph && @paragraph.persisted?

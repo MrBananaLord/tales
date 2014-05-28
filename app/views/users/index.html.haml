@@ -25,4 +25,5 @@
                 - else
                   %li= link_to t(".add_admin"), user_admin_path(user), method: :post,
                       data: { confirm: t("questions.confirm") }
-
+  .panel-footer
+    = paginate @users

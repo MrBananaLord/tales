@@ -16,6 +16,6 @@ class UsersController < ApplicationController
   
   def index
     authorize User, :index?
-    @users = User.order(:id)
+    @users = User.order(:id).page(params[:page]).per(20)
   end
 end
