@@ -37,9 +37,7 @@ class User < ActiveRecord::Base
   end
 
   def average_mark
-    games.by_mark.inject(0) do |sum, game|
-      sum += game.average_mark
-    end / ((count = games.by_mark.length) == 0 ? 1 : count)
+    marks.average(:value).to_f
   end
   
 end
