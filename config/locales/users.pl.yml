@@ -33,6 +33,10 @@ pl:
       remove_admin: "Odbierz prawa administratorskie"
       remove_user: "Usuń użytkownika"
       role: "Uprawnienia"
+    registrations:
+      thank_you:
+        heading: "Dziękujemy!"
+        thank_you: "Dziękujemy za rejestrację. Został wysłany do Ciebie e-mail. Użyj linku, żeby aktywować konto. Miłej zabawy!"
     show:
       created_games: "Gry użytkownika"
       favorite_games: "Najwyżej ocenione"

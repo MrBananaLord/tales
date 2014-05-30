@@ -7,6 +7,10 @@ Tales::Application.routes.draw do
       registrations: "users/registrations", 
       sessions: "users/sessions"
     }
+    devise_scope :user do    
+      get "users/thank_you", to: "users/registrations#thank_you"
+    end
+    
     resources :users, only: [:show, :index] do
       resource :admin, only: [:create, :destroy], on: :member, controller: "users/admins"
       resources :games, only: :index, controller: "users/games"

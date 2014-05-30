@@ -1,6 +1,9 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   layout "authorization"
   
+  def thank_you
+  end
+  
   def update
     @user = current_user
     successfully_updated = if params[:user][:password].present? ||
@@ -37,5 +40,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def account_params
     params.require(:user).permit(:username, :password, :password_confirmation,
                                  :current_password, :avatar, :avatar_cache, :email)
+  end
+  
+  protected
+
+  def after_inactive_sign_up_path_for(resource)
+    users_thank_you_path
+  end
+  
+  def after_sign_up_path_for(resource)
+    users_thank_you_path
   end
 end
