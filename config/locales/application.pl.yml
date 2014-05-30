@@ -18,6 +18,9 @@ pl:
   errors:
     messages:
       extension_white_list_error: "Złe rozszerzenie pliku."
+  layouts:
+    application:
+      masters_notice: "Autorem niniejszego serwisu jest Jan Bator. Serwis ten stanowi integralną część pracy magisterskiej z Elektronicznego Przetwarzania Informacji, przygotowywanej pod kierunkiem dra hab. Janusza Jurka na Wydziale Zarządzania i Komunikacji Społecznej Uniwersytetu Jagiellońskiego."
   questions:
     confirm: "Jesteś pewien?"
   statements:
