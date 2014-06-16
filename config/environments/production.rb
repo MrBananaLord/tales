@@ -77,4 +77,19 @@ Tales::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  
+  config.action_mailer.default_url_options = { host: Settings.default_url_options.host }
+
+  #These settings are for the sending out email for active admin and consequently the   devise mailer
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.raise_delivery_errors = true
+  ActionMailer::Base.smtp_settings = {
+    address:        'smtp.gmail.com',
+    port:           587,
+    domain:         'gmail.com',
+    authentication: "plain",
+    user_name:      Settings.mailer.username,
+    password:       Settings.mailer.password
+  }
 end
