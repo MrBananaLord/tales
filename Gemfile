@@ -10,6 +10,7 @@ gem 'sqlite3'
 gem "devise"
 gem "pundit"
 gem 'omniauth-facebook'
+gem "certified"
 
 # Facebook
 gem "koala"
