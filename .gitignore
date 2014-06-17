@@ -10,6 +10,7 @@
 
 # Ignore uploads
 /public/uploads
+/public/assets
 
 # Ignore bundler config.
 /.bundle
