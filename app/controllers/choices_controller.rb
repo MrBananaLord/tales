@@ -33,7 +33,7 @@ class ChoicesController < ApplicationController
   
   def destroy
     @choice.destroy
-    redirect_to @paragraph, notice: I18n.t("statements.destroyed")
+    redirect_to [@game, @paragraph], notice: I18n.t("statements.destroyed")
   end
   
   private
