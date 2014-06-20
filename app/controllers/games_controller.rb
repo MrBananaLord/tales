@@ -2,7 +2,7 @@ class GamesController < ApplicationController
   include GameBase
   before_filter :authenticate_user!, only: [:new, :create, :destroy]
   before_filter :load_game, only: [:edit, :update, :show,
-                                   :destroy, :publish]
+                                   :destroy, :publish, :unpublish]
                                                  
   before_filter :load_mark, except: [:destroy, :new, :create]
   layout "game", except: [:destroy, :new, :create, :show, :index]
@@ -64,6 +64,11 @@ class GamesController < ApplicationController
       @game.update_column :published_at, Time.now
       redirect_to @game, notice: I18n.t("statements.published")
     end
+  end
+  
+  def unpublish
+    @game.update_column :published_at, nil
+    redirect_to @game, notice: I18n.t("statements.unpublished")
   end
   
   private

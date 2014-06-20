@@ -14,6 +14,7 @@ pl:
       play: "Graj"
       publish: "Opublikuj grę"
       save_game: "Zapisz grę"
+      unpublish: "Cofnij publikację"
     decorator:
       draft: "Wersja robocza"
     edit:

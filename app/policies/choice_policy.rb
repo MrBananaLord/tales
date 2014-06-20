@@ -5,7 +5,7 @@ class ChoicePolicy < ApplicationPolicy
   private
   
   def manage?
-    user.present? && user == record.game.owner
+    user.present? && user == record.game.owner && !record.game.published?
   end
   
   def read?

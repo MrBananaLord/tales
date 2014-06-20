@@ -22,6 +22,10 @@ class GamePolicy < ApplicationPolicy
     manage? && !record.published?
   end
   
+  def unpublish?
+    user.present? && (user.admin? || user == record.owner) && record.published?
+  end
+    
   def mark?
     user.present? && record.published?
   end
@@ -30,10 +34,14 @@ class GamePolicy < ApplicationPolicy
     user.present? && record.published?
   end
   
+  def control?
+    user.present? && (user.admin? || user == record.owner)
+  end
+  
   private
   
   def manage?
-    user.present? && (user.admin? || user == record.owner)
+    user.present? && !record.published? && (user.admin? || user == record.owner)
   end
   
   def read?

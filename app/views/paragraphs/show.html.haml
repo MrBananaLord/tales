@@ -1,4 +1,4 @@
-- if @parent_choices.any?
+- if @parent_choices.any? && can?(:edit, @game)
   .panel.panel-default
     .panel-heading
       %h2= t(".parent_actions")

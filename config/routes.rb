@@ -21,6 +21,7 @@ Tales::Application.routes.draw do
       resource :mark, only: [:create, :update]
       get "mark", to: "marks#create"
       get "publish", to: "games#publish", on: :member
+      get "unpublish", to: "games#unpublish", on: :member
       resources :paragraphs do
         get "save", to: "saves#create", on: :member
         get "set_as_first", to: "paragraphs#set_as_first", on: :member

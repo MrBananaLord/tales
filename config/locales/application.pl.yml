@@ -35,6 +35,7 @@ pl:
     or: " lub "
     login_required: "Logowanie wymagane"
     published: "Opublikowano"
+    unpublished: "Cofnięto publikację"
     updated: "Zapisano zmiany"
   views:
     pagination:
