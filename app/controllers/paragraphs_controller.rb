@@ -56,7 +56,7 @@ class ParagraphsController < ApplicationController
     else
       flash[:alert] = I18n.t("statements.failed_try_again")
     end
-    redirect_to @paragraph
+    redirect_to [@game, @paragraph]
   end
   
   private
