@@ -1,5 +1,6 @@
 class GamesController < ApplicationController  
   include GameBase
+  before_filter :authenticate_user!, only: [:new, :create, :destroy]
   before_filter :load_game, only: [:edit, :update, :show,
                                    :destroy, :publish]
                                                  
