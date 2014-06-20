@@ -13,11 +13,12 @@ class Paragraph < ActiveRecord::Base
   accepts_nested_attributes_for :parent_choices
   
   scope :final, -> {
+    not_beginning.
     includes(:children_choices).
     where(choices: { parent_paragraph_id: nil }) }
   scope :not_beginning, -> {
     joins(:game).
-    where("paragraphs.game_id != paragraphs.id") }
+    where("paragraphs.id != games.first_paragraph_id") }
   scope :unassigned, -> {
     includes(:parent_choices).
     where(choices: { child_paragraph_id: nil }).

@@ -48,8 +48,22 @@ class GamesController < ApplicationController
   end
   
   def publish
-    @game.update_column :published_at, Time.now
-    redirect_to @game, notice: I18n.t("statements.published")
+    if !@game.first_paragraph.present?
+      redirect_to game_paragraphs_url(@game),
+                  alert: I18n.t("errors.game.first_paragraph_missing")
+    elsif @game.paragraphs.unassigned.any?
+      redirect_to game_paragraphs_url(@game, filter: :unassigned),
+                  alert: I18n.t("errors.game.unassigned_paragraphs")
+    elsif @game.paragraphs.with_childless_choices.any?
+      redirect_to game_paragraphs_url(@game, filter: :with_childless_choices),
+                  alert: I18n.t("errors.game.paragraphs_with_childless_choices")
+    elsif @game.paragraphs.final.none?
+      redirect_to game_paragraphs_url(@game),
+                  alert: I18n.t("errors.game.final_paragraphs_missing")
+    else
+      @game.update_column :published_at, Time.now
+      redirect_to @game, notice: I18n.t("statements.published")
+    end
   end
   
   private

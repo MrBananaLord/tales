@@ -18,6 +18,11 @@ pl:
       sign_up_with_facebook: "Połącz Facebookiem"
       submit_search: "Szukaj"
   errors:
+    game:
+      final_paragraphs_missing: "Nie opublikowano. Brak paragrafów końcowych."
+      first_paragraph_missing: "Nie opublikowano. Brak pierwszego paragrafu."
+      paragraphs_with_childless_choices: "Nie opublikowano. Istnieją odpowiedzi bez docelowego paragrafu."
+      unassigned_paragraphs: "Nie opublikowano. Istnieją nieprzypisane paragrafy."
     messages:
       extension_white_list_error: "Złe rozszerzenie pliku."
   questions:
