@@ -2,8 +2,8 @@
   .panel-heading
     %h2 FAQ
   .panel-body
-    - questions = %w(wtf)
+    - questions = %w(wtf new_game important_things publishing)
     %dl
       - questions.each do |question|
         %dt= t(".questions.#{question}")
-        %dd= t(".answers.#{question}")
+        %dd= t(".answers.#{question}").html_safe

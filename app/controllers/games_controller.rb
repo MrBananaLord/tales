@@ -68,7 +68,7 @@ class GamesController < ApplicationController
   
   def unpublish
     @game.update_column :published_at, nil
-    redirect_to current_user.admin? ? root_url : @game,
+    redirect_to current_user != @game.owner ? root_url : @game,
                 notice: I18n.t("statements.unpublished")
   end
   

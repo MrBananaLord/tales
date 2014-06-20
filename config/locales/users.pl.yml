@@ -26,6 +26,7 @@ pl:
     games:
       index:
         games: "Gry użytkownika"
+        no_user_games: "Uzytkownik nie stworzył jeszcze żadnej gry."
     index:
       add_admin: "Mianuj administratorem"
       heading: "Użytkownicy"

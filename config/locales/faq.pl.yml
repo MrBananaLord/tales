@@ -3,8 +3,29 @@ pl:
     faq:
       answers:
         wtf: "Gra paragrafowa jest rodzajem interaktywnej opowieści. Gracz czyta
-              paragraf i wybiera jedną z możliwych odpowiedzi. Wybór wpływa na
-              to, który paragraf będzie wyświetlony jako następny. W ten sposób
-              gracz poniekąd tworzy własną opowieść."
+          paragraf i wybiera jedną z możliwych odpowiedzi. Wybór wpływa na
+          to, który paragraf będzie wyświetlony jako następny. W ten sposób
+          gracz poniekąd tworzy własną opowieść."
+        new_game: "To prosta sprawa. Po wybraniu nazwy gry, dodaj nowy paragraf.
+          W stworzonym paragrafie dodaj kilka odpowiedzi. Dla każdej odpowiedzi
+          stwórz lub ustaw docelowe paragrafy. Powtarzając te kroki, stwórz własną
+          historię."
+        important_things: "Jest kilka warunków związanych z poprawnością gry.
+          <ul><li>Po pierwsze gra musi mieć ustawiony paragraf początkowy (można
+          to zrobić w widoku paragrafu albo w liście paragrafów gry).</li>
+          <li>Po drugie dla każdego paragrafu musi istnieć dojście, czyli musi
+          istnieć odpowiedź, która do tego paragrafu prowadzi.</li>
+          <li>Po trzecie każda odpowiedź musi wskazywać jakiś paragraf.</li>
+          <li>Po czwarte gra musi mieć paragrafy końcowe.</li></ul>
+          Te warunki są sprawdzane przed publikacją, jednak nie jest sprawdzane to,
+          czy grę się da \"przejść\" od początku do końca."
+        publishing: "Publikując grę, użytkownik zgadza się na pokazanie jej wszystkim
+          innym użytkownikom. W momencie publikacji zostaje zablokowana możliwość
+          edycji i usuwania gry, ale pojawia się możliwość zapisu gry. Publikację
+          można cofnąć w każdym momencie. Po cofnięciu publikacji znowu można
+          edytować grę."
       questions:
         wtf: "Co to jest gra paragrafowa?"
+        new_game: "Jak stworzyć grę?"
+        important_things: "Kiedy gra jest stworzona poprawnie?"
+        publishing: "Jak działa publikowanie?"

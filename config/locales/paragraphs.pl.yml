@@ -29,3 +29,4 @@ pl:
       parent_actions: "Wybory prowadzące do tego paragrafu"
       parent_choice_content: "Odpowiedź"
       parent_paragraph_content: "Paragraf"
+      set_as_first: "Ustaw jako pierwszy"

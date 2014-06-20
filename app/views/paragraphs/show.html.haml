@@ -23,6 +23,7 @@
     = caret_menu do
       - if can?(:edit, @paragraph)
         %li= link_to t(".edit_paragraph"), [:edit, @game, @paragraph]
+        %li= link_to t(".set_as_first"), [:set_as_first, @game, @paragraph]
       - if can?(:destroy, @paragraph)
         %li= link_to t(".destroy_paragraph"), [@game, @paragraph],
             method: :delete, data: { confirm: t("questions.confirm") }
