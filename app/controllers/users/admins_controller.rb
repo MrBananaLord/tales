@@ -3,12 +3,12 @@ class Users::AdminsController < ApplicationController
 
   def create
     @user.update_column :role, "admin"
-    redirect_to users_path, notice: I18n.t(".updated")
+    redirect_to users_path, notice: I18n.t("statements.updated")
   end
   
   def destroy
     @user.update_column :role, "standard_user"
-    redirect_to users_path, notice: I18n.t(".updated")
+    redirect_to users_path, notice: I18n.t("statements.updated")
   end
   
   private
