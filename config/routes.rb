@@ -28,6 +28,8 @@ Tales::Application.routes.draw do
       end
     end
     
+    get "faq", to: "home#faq"
+    
     root to: "home#index"
   end
 end

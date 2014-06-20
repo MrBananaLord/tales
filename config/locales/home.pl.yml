@@ -1,6 +1,8 @@
 pl:
   home:
     index:
+      create_game: "Stwórz grę"
+      faq: "Nie wiesz jak się do tego zabrać? Przeczytaj FAQ"
       latest_games: "Najnowsze gry"
       most_popular_authors: "Najpopularniejsi autorzy"
       most_popular_games: "Najpopularniejsze gry"

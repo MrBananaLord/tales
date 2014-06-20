@@ -2,9 +2,8 @@
   %h1= title "Tales"
   %p
     = t(".welcome")
-  - unless current_user
-    = link_to t(".sign_in"), new_user_session_path, class: "btn btn-primary"
-    = link_to t(".sign_up"), new_user_registration_path, class: "btn btn-primary"
+  = link_to t(".create_game"), new_game_path, class: "btn btn-primary"
+  = link_to t(".faq"), faq_path
     
 .col-md-12
   .panel.panel-default

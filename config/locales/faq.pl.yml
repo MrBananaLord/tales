@@ -1,0 +1,10 @@
+pl:
+  home:
+    faq:
+      answers:
+        wtf: "Gra paragrafowa jest rodzajem interaktywnej opowieści. Gracz czyta
+              paragraf i wybiera jedną z możliwych odpowiedzi. Wybór wpływa na
+              to, który paragraf będzie wyświetlony jako następny. W ten sposób
+              gracz poniekąd tworzy własną opowieść."
+      questions:
+        wtf: "Co to jest gra paragrafowa?"

@@ -7,4 +7,8 @@ class HomeController < ApplicationController
     
     @most_popular_authors = User.by_mark.limit(4)
   end
+  
+  def faq
+    
+  end
 end

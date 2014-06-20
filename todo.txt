@@ -1,0 +1,6 @@
+# TODO
+1. Link do tworzenia gry na głównej
+2. FAQ
+3. Link do FAQ
+4. Ostrzeżenie o złych paragrafach/odpowiedziach przy publikacji.
+5. Możliwość cofnięcia publikacji.

@@ -18,10 +18,13 @@
     - else
       .container
         = yield
-    
-    %footer
-      %nav.navbar.visible-xs.navbar-default
-        .container
+        
+    .container
+      %footer
+        %nav.navbar.navbar-default
           - if content_for? :footer_content
             = yield(:footer_content)
-          %p.masters_notice= t(".masters_notice")
+          %p.masters_notice
+            = link_to "FAQ", faq_path
+            |
+            = t(".masters_notice")
