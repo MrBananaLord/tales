@@ -12,11 +12,13 @@ pl:
           historię."
         important_things: "Jest kilka warunków związanych z poprawnością gry.
           <ul><li>Po pierwsze gra musi mieć ustawiony paragraf początkowy (można
-          to zrobić w widoku paragrafu albo w liście paragrafów gry).</li>
+          to zrobić w widoku paragrafu albo w liście paragrafów gry z poziomu
+          rozwijanego menu).</li>
           <li>Po drugie dla każdego paragrafu musi istnieć dojście, czyli musi
           istnieć odpowiedź, która do tego paragrafu prowadzi.</li>
           <li>Po trzecie każda odpowiedź musi wskazywać jakiś paragraf.</li>
-          <li>Po czwarte gra musi mieć paragrafy końcowe.</li></ul>
+          <li>Po czwarte gra musi mieć paragrafy końcowe. Paragraf końcowy jest
+          to paragraf nie posiadający odpowiedzi.</li></ul>
           Te warunki są sprawdzane przed publikacją, jednak nie jest sprawdzane to,
           czy grę się da \"przejść\" od początku do końca."
         publishing: "Publikując grę, użytkownik zgadza się na pokazanie jej wszystkim
