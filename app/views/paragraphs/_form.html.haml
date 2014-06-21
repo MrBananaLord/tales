@@ -1,6 +1,6 @@
 = simple_form_for [@game, @paragraph] do |f|
   - if @choice.present?
     = hidden_field "", :choice_id, value: @choice.id
-  = f.input :content
+  = f.input :content, autofocus: true
   
   = basic_actions f, @paragraph.persisted? ? [@game, @paragraph] : @game

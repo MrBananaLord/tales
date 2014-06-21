@@ -1,5 +1,5 @@
 = simple_form_for [@game, @paragraph, @choice] do |f|
-  = f.input :content
+  = f.input :content, autofocus: true
   = f.association :child_paragraph, label_method: :content,
     collection: @game.paragraphs
   
