@@ -5,6 +5,8 @@ pl:
         content: "Treść"
         child_paragraph: "Paragraf docelowy"
   choices:
+    form:
+      previous_paragraph_content: "Treść paragrafu"
     new:
       heading: "Dodawanie odpowiedzi"
     edit:

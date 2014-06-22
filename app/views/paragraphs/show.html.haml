@@ -14,7 +14,7 @@
             %tr
               %td= parent_choice.parent_paragraph.id
               %td
-                = link_to parent_choice.parent_paragraph.content,
+                = link_to truncate(parent_choice.parent_paragraph.content, length: 60),
                   [@game, parent_choice.parent_paragraph]
               %td= parent_choice.content
 
@@ -27,7 +27,7 @@
       - if can?(:destroy, @paragraph)
         %li= link_to t(".destroy_paragraph"), [@game, @paragraph],
             method: :delete, data: { confirm: t("questions.confirm") }
-    %p= @paragraph.content
+    = simple_format @paragraph.content
 
   .panel-footer
     .list-group

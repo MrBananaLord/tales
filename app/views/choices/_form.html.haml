@@ -1,6 +1,12 @@
+.panel.panel-default
+  .panel-body
+    %h3= t(".previous_paragraph_content")
+    = simple_format @paragraph.content
+
 = simple_form_for [@game, @paragraph, @choice] do |f|
   = f.input :content, autofocus: true
-  = f.association :child_paragraph, label_method: :content,
+  = f.association :child_paragraph,
+    label_method: -> a { truncate(a.content, length: 60) },
     collection: @game.paragraphs
   
   = basic_actions f, [@game, @paragraph]
