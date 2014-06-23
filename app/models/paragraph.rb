@@ -13,7 +13,6 @@ class Paragraph < ActiveRecord::Base
   accepts_nested_attributes_for :parent_choices
   
   scope :final, -> {
-    not_beginning.
     includes(:children_choices).
     where(choices: { parent_paragraph_id: nil }) }
   scope :not_beginning, -> {
