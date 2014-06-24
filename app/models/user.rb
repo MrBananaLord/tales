@@ -18,9 +18,9 @@ class User < ActiveRecord::Base
   
   scope :by_mark, -> {
     joins(:games).
-    joins("LEFT JOIN marks ON games.id = marks.id").
-    group("users.id").
-    order("(sum(marks.value) / count(marks.id)) ASC, count(marks.id) ASC")
+    joins("INNER JOIN marks ON marks.game_id = games.id").
+    group("users.id, games.id").
+    order("AVG(marks.value) DESC")
   }
     
   def self.find_first_by_auth_conditions(warden_conditions)

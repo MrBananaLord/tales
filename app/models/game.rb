@@ -9,7 +9,7 @@ class Game < ActiveRecord::Base
   
   scope :published, -> { where("published_at < ?", Time.now) }
   scope :by_mark, -> { joins(:marks).group("games.id").
-    order("(sum(marks.value) / count(marks.id)) DESC, count(marks.id) DESC") }
+    order("AVG(marks.value) DESC") }
   scope :latest, -> { order("published_at DESC") }
   
   def published?
