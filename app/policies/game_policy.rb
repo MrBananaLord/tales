@@ -2,6 +2,7 @@ class GamePolicy < ApplicationPolicy
   class Scope < ApplicationPolicy::Scope      
     def resolve
       if user
+        return scope if user.admin?
         scope.where("owner_id = ? OR published_at < ?", user.id, Time.now)
       else
         scope.published
