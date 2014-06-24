@@ -16,9 +16,13 @@ class User < ActiveRecord::Base
   
   attr_accessor :login
   
-  scope :by_mark, -> { joins(:marks).group("users.id").
-    order("(sum(marks.value) / count(marks.id)) DESC, count(marks.id) DESC") }
-  
+  scope :by_mark, -> {
+    joins(:games).
+    joins("LEFT JOIN marks ON games.id = marks.id").
+    group("users.id").
+    order("(sum(marks.value) / count(marks.id)) ASC, count(marks.id) ASC")
+  }
+    
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
