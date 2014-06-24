@@ -30,6 +30,8 @@
     = simple_format @paragraph.content
 
   .panel-footer
+    - if @paragraph.final?
+      %strong= t(".final")
     .list-group
       - @children_choices.each do |choice|
         .list-group-item
