@@ -12,6 +12,8 @@ pl:
   paragraphs:
     edit:
       heading: "Edytowanie paragrafu"
+    form:
+      choice: "Odpowiedź prowadząca do tego paragrafu" 
     index:
       all_paragraphs: "Paragrafy - %{filter}"
       content: "Treść"

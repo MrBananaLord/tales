@@ -1,6 +1,9 @@
+- if @choice.present?
+  %strong= t(".choice")
+  %p= @choice.content
 = simple_form_for [@game, @paragraph] do |f|
   - if @choice.present?
     = hidden_field "", :choice_id, value: @choice.id
   = f.input :content, autofocus: true
   
-  = basic_actions f, @paragraph.persisted? ? [@game, @paragraph] : @game
+  = basic_actions f, @choice.present? ? [@game, @choice.parent_paragraph] : @paragraph.persisted? ? [@game, @paragraph] : @game
